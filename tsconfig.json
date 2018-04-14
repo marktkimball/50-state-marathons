@@ -20,7 +20,8 @@
       "interfaces/*": ["interfaces/*"],
       "reducers/*": ["reducers/*"],
       "routes/*": ["routes/*"],
-      "store/*": ["store/*"]
+      "store/*": ["store/*"],
+      "theme/*": ["theme/*"]
     }
   },
   "include": ["./src/**/*.ts", "./src/**/*.tsx"],

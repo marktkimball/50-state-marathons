@@ -3,11 +3,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const babelrc = require('./package.json').babel;
 
 module.exports = {
+  devServer: { historyApiFallback: true },
   devtool: 'inline-source-map',
   entry: './src/index.tsx',
   mode: 'production',
   module: {
     rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
@@ -41,15 +46,16 @@ module.exports = {
     },
   },
   output: {
-    filename: `[name].[chunkhash].js`,
+    filename: '[name].[chunkhash].js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
   },
   plugins: [
     new HtmlWebpackPlugin({
       cache: false,
-      template: 'src/index.html',
       chunksSortMode: 'dependency',
+      favicon: 'src/assets/favicon.ico',
+      template: 'src/index.html',
     }),
   ],
   resolve: {

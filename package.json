@@ -8,7 +8,11 @@
   "license": "MIT",
   "scripts": {
     "build": "rm -rf dist/ && webpack -p --colors",
-    "start": "webpack-dev-server --inline --progress"
+    "lint": "yarn lint:js && yarn lint:ts",
+    "lint:js": "eslint ./src --ext .js",
+    "lint:ts": "tslint --project ./tsconfig.json ./src/**/*.ts{,x}",
+    "start": "webpack-dev-server --inline --progress",
+    "serve": "node server.js"
   },
   "babel": {
     "presets": [
@@ -30,8 +34,7 @@
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "redux": "^3.7.2",
-    "styled-components": "^3.2.5"
+    "redux": "^3.7.2"
   },
   "devDependencies": {
     "@types/react": "^16.3.9",
@@ -46,12 +49,15 @@
     "babel-plugin-transform-strict-mode": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.11",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "2.7.0",
     "eslint-plugin-jsx-a11y": "6.0.2",
     "eslint-plugin-react": "^7.7.0",
+    "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.20.3",
     "tslint": "^5.9.1",
     "tslint-config-airbnb": "^5.8.0",
     "typescript": "^2.8.1",
