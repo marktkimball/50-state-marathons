@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Route, Switch } from 'react-router';
+import { Redirect, Route, Switch } from 'react-router';
 import AppBar from 'material-ui/AppBar';
 import Button from 'material-ui/Button';
 import Toolbar from 'material-ui/Toolbar';
@@ -35,6 +35,7 @@ const AppComponent: React.SFC<AppComponentProps> = ({ classes }) => (
         </Button>
       </Toolbar>
     </AppBar>
+    <Redirect from="/" to="/main" />
     <Switch>
       <Route exact path="/main" component={MainContainer} />
     </Switch>

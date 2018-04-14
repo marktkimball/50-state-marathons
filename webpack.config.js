@@ -1,9 +1,15 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const config = require('./config');
 const babelrc = require('./package.json').babel;
 
 module.exports = {
-  devServer: { historyApiFallback: true },
+  devServer: {
+    historyApiFallback: true,
+    setup(app) {
+      app.use(config);
+    },
+  },
   devtool: 'inline-source-map',
   entry: './src/index.tsx',
   mode: 'production',
@@ -25,6 +31,17 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: babelrc,
+          },
+        ],
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+            },
           },
         ],
       },

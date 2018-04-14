@@ -15,6 +15,7 @@
     "strict": true,
     "paths": {
       "actions/*": ["actions/*"],
+      "app-constants/*": ["app-constants/*"],
       "components/*": ["components/*"],
       "containers/*": ["containers/*"],
       "interfaces/*": ["interfaces/*"],
