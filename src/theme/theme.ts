@@ -1,13 +1,13 @@
 import { createMuiTheme } from 'material-ui/styles';
-import green from 'material-ui/colors/green';
-import yellow from 'material-ui/colors/yellow';
+import blue from 'material-ui/colors/blue';
+import amber from 'material-ui/colors/amber';
 
 export const theme = createMuiTheme({
   typography: {
     htmlFontSize: 10,
   },
   palette: {
-    primary: green,
-    secondary: yellow,
+    primary: blue,
+    secondary: amber,
   },
 });

@@ -1,11 +1,8 @@
 import * as React from 'react';
-import { Redirect, Route, Switch } from 'react-router';
-import AppBar from 'material-ui/AppBar';
-import Button from 'material-ui/Button';
-import Toolbar from 'material-ui/Toolbar';
+import grey from 'material-ui/colors/grey';
 import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
-import { MainContainer } from 'containers/main';
+import { Router } from 'components/router';
 
 import './app.css';
 
@@ -14,8 +11,13 @@ interface AppComponentProps {
 }
 
 const styles = {
+  app: {
+    background: grey[50],
+    minHeight: '100vh',
+  },
   title: {
-    color: '#FFF',
+    background: '#FFF',
+    textAlign: 'center' as 'center',
   },
   toolbar: {
     display: 'flex',
@@ -24,24 +26,14 @@ const styles = {
 };
 
 const AppComponent: React.SFC<AppComponentProps> = ({ classes }) => (
-  <div>
-    <AppBar position="fixed">
-      <Toolbar className={classes.toolbar}>
-        <Typography className={classes.title} variant="title">
-          The Road to 50 States
-        </Typography>
-        <Button color="secondary" variant="raised">
-          Say Congrats
-        </Button>
-      </Toolbar>
-    </AppBar>
-    <Redirect from="/" to="/main" />
-    <Switch>
-      <Route exact path="/main" component={MainContainer} />
-    </Switch>
+  <div className={classes.app}>
+    <Typography className={classes.title} variant="display4">
+      The Road to 50 States
+    </Typography>
+    <Router />
   </div>
 );
 
 AppComponent.displayName = 'App';
 
-export const App = withStyles(styles)(AppComponent);
+export const App = withStyles(styles)<{}>(AppComponent);

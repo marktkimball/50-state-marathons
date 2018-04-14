@@ -20,7 +20,6 @@
       "containers/*": ["containers/*"],
       "interfaces/*": ["interfaces/*"],
       "reducers/*": ["reducers/*"],
-      "routes/*": ["routes/*"],
       "store/*": ["store/*"],
       "theme/*": ["theme/*"]
     }
