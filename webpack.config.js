@@ -1,18 +1,25 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const config = require('./config');
 const babelrc = require('./package.json').babel;
 
+const isProd = process.env.NODE_ENV === 'production';
+
 module.exports = {
+  context: path.resolve(__dirname),
   devServer: {
+    contentBase: './dist',
     historyApiFallback: true,
     setup(app) {
       app.use(config);
     },
   },
-  devtool: 'inline-source-map',
-  entry: './src/index.tsx',
-  mode: 'production',
+  devtool: isProd ? 'hidden-source-map' : 'inline-source-map',
+  entry: {
+    main: ['babel-polyfill', './src/index.tsx'],
+  },
+  mode: isProd ? 'production' : 'development',
   module: {
     rules: [
       {
@@ -52,7 +59,7 @@ module.exports = {
     ],
   },
   optimization: {
-    minimize: true,
+    minimize: isProd,
     runtimeChunk: false,
     splitChunks: {
       cacheGroups: {
@@ -68,7 +75,7 @@ module.exports = {
   },
   output: {
     filename: '[name].[chunkhash].js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.join(__dirname, 'dist'),
     publicPath: '/',
   },
   plugins: [
@@ -78,7 +85,7 @@ module.exports = {
       favicon: 'src/assets/favicon.ico',
       template: 'src/index.html',
     }),
-  ],
+  ].concat(isProd ? [new UglifyJSPlugin({ sourceMap: true })] : []),
   resolve: {
     modules: [path.resolve('./src'), 'node_modules'],
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
