@@ -4,6 +4,7 @@ import Icon from 'material-ui/Icon';
 import { withStyles } from 'material-ui/styles';
 import Tabs, { Tab } from 'material-ui/Tabs';
 import { MainContainer } from 'containers/main';
+import { CommentFormContainer } from 'containers/comment-form';
 
 interface RouterProps {
   classes: any;
@@ -47,7 +48,7 @@ export class RouterComponent extends React.Component<RouterProps, RouterState> {
         <main className={classes.main}>
           {value === 0 && <MainContainer />}
           {value === 1 && <h1>The Journey</h1>}
-          {value === 2 && <h1>Say Congrats</h1>}
+          {value === 2 && <CommentFormContainer />}
         </main>
       </>
     );
