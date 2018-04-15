@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Website for my dad's 50th marathon state",
   "main": "index.js",
+  "engines": {
+    "node": ">=8.9.4",
+    "yarn": "1.5.1"
+  },
   "repository": "https://github.com/marktkimball/50-state-marathons.git",
   "author": "marktkimball <mark.kimball@octanner.com>",
   "license": "MIT",
@@ -15,13 +19,8 @@
     "serve": "node server.js"
   },
   "babel": {
-    "presets": [
-      "stage-0",
-      "react"
-    ],
-    "plugins": [
-      "transform-strict-mode"
-    ]
+    "presets": ["stage-0", "react"],
+    "plugins": ["transform-strict-mode"]
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
