@@ -1,24 +1,31 @@
 import * as React from 'react';
+import { get } from 'lodash';
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import { withStyles, WithStyles } from 'material-ui/styles';
 import { Typography } from 'material-ui';
 import { FileUploader } from 'components/file-uploader';
+import { getFileNames } from 'utils';
 
 interface CommentFormState {
   comment: string;
   name: string;
+  photoInput: HTMLInputElement | null;
+  videoInput: HTMLInputElement | null;
 }
 
 const decorate = withStyles(() => ({
   container: {
     padding: '3.2rem 1.6rem',
   },
+  fileUploader: {
+    marginTop: '3.2rem',
+  },
 }));
 
 export const CommentForm = decorate<{}>(
   class CommentFormComponent extends React.Component<
-    WithStyles<'container'>,
+    WithStyles<'container' | 'fileUploader'>,
     CommentFormState
   > {
     static displayName = 'CommentForm';
@@ -26,14 +33,17 @@ export const CommentForm = decorate<{}>(
     state = {
       comment: '',
       name: '',
+      photoInput: null,
+      videoInput: null,
     };
 
     handleChange = (field: string) => (
-      event: React.ChangeEvent<HTMLInputElement>,
-    ) => this.setState({ ...this.state, [field]: event.target.value });
+      event: React.FormEvent<HTMLInputElement>,
+    ) => this.setState({ ...this.state, [field]: event.currentTarget });
 
     render() {
       const { classes } = this.props;
+      const { comment, name } = this.state;
       return (
         <Paper className={classes.container}>
           <Typography paragraph variant="headline">
@@ -53,7 +63,7 @@ export const CommentForm = decorate<{}>(
             onChange={this.handleChange('name')}
             placeholder="Your full name"
             required
-            value={this.state.name}
+            value={name}
           />
           <TextField
             fullWidth
@@ -63,20 +73,30 @@ export const CommentForm = decorate<{}>(
             onChange={this.handleChange('comment')}
             placeholder="Personal comment or congratulations"
             required
-            value={this.state.comment}
+            value={comment}
           />
           <FileUploader
             accept="image/*"
-            label="Add a photo"
+            className={classes.fileUploader}
+            label={
+              !!this.state.photoInput
+                ? getFileNames(get(this, 'state.photoInput.files'))
+                : 'Add a photo'
+            }
             multiple
             name="photos"
-            onChange={() => {}}
+            onChange={this.handleChange('photoInput')}
           />
           <FileUploader
             accept="video/mp4,video/x-m4v,video/*"
-            label="Add a video"
+            className={classes.fileUploader}
+            label={
+              !!this.state.videoInput
+                ? getFileNames(get(this, 'state.videoInput.files'))
+                : 'Add a video'
+            }
             name="video"
-            onChange={() => {}}
+            onChange={this.handleChange('videoInput')}
           />
         </Paper>
       );
