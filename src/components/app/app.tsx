@@ -1,39 +1,26 @@
 import * as React from 'react';
+import styled from 'styled-components';
 import grey from 'material-ui/colors/grey';
 import Typography from 'material-ui/Typography';
-import { withStyles } from 'material-ui/styles';
 import { Router } from 'components/router';
 
 import './app.css';
 
-interface AppComponentProps {
-  classes: any;
-}
+const Container = styled.div`
+  background: ${grey[50]};
+  min-height: 100vh;
+`;
 
-const styles = {
-  app: {
-    background: grey[50],
-    minHeight: '100vh',
-  },
-  title: {
-    background: '#FFF',
-    textAlign: 'center' as 'center',
-  },
-  toolbar: {
-    display: 'flex',
-    justifyContent: 'space-between',
-  },
-};
+const Title = styled(Typography)`
+  background: #fff;
+  text-align: center;
+`;
 
-const AppComponent: React.SFC<AppComponentProps> = ({ classes }) => (
-  <div className={classes.app}>
-    <Typography className={classes.title} variant="display4">
-      The Road to 50 States
-    </Typography>
+export const App: React.SFC<{}> = () => (
+  <Container>
+    <Title variant="display4">The Road to 50 States</Title>
     <Router />
-  </div>
+  </Container>
 );
 
-AppComponent.displayName = 'App';
-
-export const App = withStyles(styles)<{}>(AppComponent);
+App.displayName = 'App';

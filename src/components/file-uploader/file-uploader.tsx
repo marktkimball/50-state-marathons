@@ -1,8 +1,7 @@
 import * as React from 'react';
-import * as classNames from 'classnames';
+import styled from 'styled-components';
 import grey from 'material-ui/colors/grey';
 import Icon from 'material-ui/Icon';
-import { withStyles, WithStyles } from 'material-ui/styles';
 import { Typography } from 'material-ui';
 
 interface FileUploaderProps {
@@ -14,48 +13,39 @@ interface FileUploaderProps {
   onChange(event: React.ChangeEvent<HTMLInputElement>): void;
 }
 
-const styles = {
-  fileUpload: {
-    alignItems: 'center',
-    border: `0.2rem dashed ${grey[300]}`,
-    cursor: 'pointer',
-    display: 'flex',
-    padding: '1.6rem',
-  },
-  input: {
-    display: 'none',
-  },
-};
+const Label = styled.label`
+  align-items: center;
+  border: 0.2rem dashed ${grey[300]};
+  cursor: pointer;
+  display: flex;
+  padding: 1.6rem;
+`;
 
-type PropsWithStyles = FileUploaderProps & WithStyles<'fileUpload' | 'input'>;
+const Input = styled.input`
+  display: none;
+`;
 
-export const FileUploaderComponent: React.SFC<PropsWithStyles> = ({
+export const FileUploader: React.SFC<FileUploaderProps> = ({
   accept,
-  classes,
   className,
   label,
   multiple,
   name,
   onChange,
 }) => (
-  <label className={classNames(classes.fileUpload, className)}>
+  <Label className={className}>
     <Icon color="primary">attach_file</Icon>
     <Typography color="primary" variant="subheading">
       {label}
     </Typography>
-    <input
+    <Input
       accept={accept}
-      className={classes.input}
       multiple={!!multiple}
       type="file"
       onChange={onChange}
       name={name}
     />
-  </label>
-);
-
-export const FileUploader = withStyles(styles)<FileUploaderProps>(
-  FileUploaderComponent,
+  </Label>
 );
 
 FileUploader.displayName = 'FileUploader';

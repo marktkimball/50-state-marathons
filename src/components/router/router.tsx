@@ -1,29 +1,30 @@
 import * as React from 'react';
+import styled from 'styled-components';
 import AppBar from 'material-ui/AppBar';
 import Icon from 'material-ui/Icon';
-import { withStyles } from 'material-ui/styles';
 import Tabs, { Tab } from 'material-ui/Tabs';
 import { MainContainer } from 'containers/main';
 import { CommentFormContainer } from 'containers/comment-form';
-
-interface RouterProps {
-  classes: any;
-}
 
 interface RouterState {
   value: number;
 }
 
-const styles = {
-  flightIcon: {
-    transform: 'rotate(90deg)',
-  },
-  main: {
-    padding: '10rem',
-  },
-};
+const FlightIcon = styled(Icon)`
+  transform: rotate(90deg);
+`;
 
-export class RouterComponent extends React.Component<RouterProps, RouterState> {
+const Main = styled.main`
+  padding: 0.8rem;
+
+  @media (min-width: 769px) {
+    padding: 10rem;
+  }
+`;
+
+export class Router extends React.Component<{}, RouterState> {
+  static displayName = 'Router';
+
   state = {
     value: 0,
   };
@@ -31,28 +32,22 @@ export class RouterComponent extends React.Component<RouterProps, RouterState> {
   handleChange = (_event: any, value: number) => this.setState({ value });
 
   render() {
-    const { classes } = this.props;
     const { value } = this.state;
     return (
       <>
         <AppBar position="static">
           <Tabs value={this.state.value} onChange={this.handleChange}>
             <Tab label="Beginnings" icon={<Icon>home</Icon>} />
-            <Tab
-              label="The Journey"
-              icon={<Icon className={classes.flightIcon}>flight</Icon>}
-            />
+            <Tab label="The Journey" icon={<FlightIcon>flight</FlightIcon>} />
             <Tab label="Say Congrats" icon={<Icon>chat_bubble</Icon>} />
           </Tabs>
         </AppBar>
-        <main className={classes.main}>
+        <Main>
           {value === 0 && <MainContainer />}
           {value === 1 && <h1>The Journey</h1>}
           {value === 2 && <CommentFormContainer />}
-        </main>
+        </Main>
       </>
     );
   }
 }
-
-export const Router = withStyles(styles)<{}>(RouterComponent);

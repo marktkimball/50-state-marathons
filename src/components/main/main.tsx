@@ -1,56 +1,51 @@
 import * as React from 'react';
+import styled from 'styled-components';
 import Card, { CardContent, CardMedia } from 'material-ui/Card';
 import Grid from 'material-ui/Grid';
 import Typography from 'material-ui/Typography';
-import { withStyles } from 'material-ui/styles';
 
 const california = require('assets/images/california.jpg');
 
-interface MainComponentProps {
-  classes: any;
-}
+const Bullet = styled.span`
+  display: inline-block;
+  margin: 0 0.2rem;
+  transform: scale(0.8);
+`;
 
-const styles = {
-  bullet: {
-    display: 'inline-block',
-    margin: '0 0.2rem',
-    transform: 'scale(0.8)',
-  },
-  caption: {
-    textAlign: 'center' as 'center',
-  },
-  indent: {
-    marginLeft: '1.6rem',
-    marginBottom: '1.6rem',
-  },
-  media: {
-    backgroundPosition: 'top',
-    height: '60rem',
-  },
-  pos: {
-    fontStyle: 'italic' as 'italic',
-  },
-  variant: {
-    fontWeight: 600 as 600,
-  },
-};
+const Caption = styled(Typography)`
+  text-align: center;
+`;
 
-const MainComponent: React.SFC<MainComponentProps> = ({ classes }) => {
-  const bullet = <span className={classes.bullet}>•</span>;
+const IndentTypography = styled(Typography)`
+  margin-left: 1.6rem;
+  margin-bottom: 1.6rem;
+`;
+
+const Media = styled(CardMedia)`
+  && {
+    background-position: top;
+    height: 60rem;
+  }
+`;
+
+const ItalicTypography = styled(Typography)`
+  font-style: italic;
+`;
+
+const Variant = styled.span`
+  font-weight: 600;
+`;
+
+export const Main: React.SFC<{}> = () => {
+  const bullet = <Bullet>•</Bullet>;
 
   return (
     <Grid container spacing={16}>
       <Grid item xs={12} sm={8}>
         <Card>
-          <CardMedia
-            className={classes.media}
-            image={california}
-            title="San Francisco, CA - 1979"
-          />
+          <Media image={california} title="San Francisco, CA - 1979" />
           <CardContent>
-            <Typography className={classes.caption} variant="caption">
-              San Francisco, CA - 1979
-            </Typography>
+            <Caption variant="caption">San Francisco, CA - 1979</Caption>
           </CardContent>
         </Card>
       </Grid>
@@ -61,27 +56,27 @@ const MainComponent: React.SFC<MainComponentProps> = ({ classes }) => {
               mar{bullet}a{bullet}thon
             </Typography>
             <Typography>/ˈmerəˌTHän/</Typography>
-            <Typography className={classes.pos}>noun</Typography>
+            <ItalicTypography>noun</ItalicTypography>
             <Typography color="textSecondary">
-              noun: <span className={classes.variant}>marathon</span>; plural
-              noun: <span className={classes.variant}>marathons</span>
+              noun: <Variant>marathon</Variant>; plural noun:{' '}
+              <Variant>marathons</Variant>
             </Typography>
-            <Typography className={classes.indent}>
+            <IndentTypography>
               a long-distance running race, strictly one of 26 miles and 385
               yards (42.195 km).
-            </Typography>
+            </IndentTypography>
             <Typography color="textSecondary">Origin</Typography>
             <Typography color="textSecondary">
               Marathōn -----> marathon
             </Typography>
-            <Typography className={classes.indent}>
+            <IndentTypography>
               late 19th century: from Marathōn in Greece, the scene of a victory
               over the Persians in 490 BC; the modern race is based on the
               tradition that a messenger ran from Marathon to Athens (22 miles)
               with the news. The original account by Herodotus told of the
               messenger Pheidippides running 150 miles from Athens to Sparta
               before the battle, seeking help.
-            </Typography>
+            </IndentTypography>
           </CardContent>
         </Card>
       </Grid>
@@ -89,6 +84,4 @@ const MainComponent: React.SFC<MainComponentProps> = ({ classes }) => {
   );
 };
 
-MainComponent.displayName = 'Main';
-
-export const Main = withStyles(styles)<{}>(MainComponent);
+Main.displayName = 'Main';
