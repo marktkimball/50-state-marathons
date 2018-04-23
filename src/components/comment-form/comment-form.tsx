@@ -7,9 +7,15 @@ import TextField from 'material-ui/TextField';
 import { Typography } from 'material-ui';
 import { FileUploader } from 'components/file-uploader';
 import { getFileNames } from 'utils';
+import { createComment } from 'actions';
 
 interface CommentFormState {
   comment: string;
+  errors: {
+    comment?: string;
+    name?: string;
+  };
+  isSubmitting: boolean;
   name: string;
   photoInput: HTMLInputElement | null;
   videoInput: HTMLInputElement | null;
@@ -34,17 +40,74 @@ export class CommentForm extends React.Component<{}, CommentFormState> {
 
   state = {
     comment: '',
+    errors: {},
+    isSubmitting: false,
     name: '',
     photoInput: null,
     videoInput: null,
   };
 
-  handleChange = (field: string) => (
+  handleTextFieldChange = (field: string) => (
+    event: React.FormEvent<HTMLInputElement>,
+  ) => this.setState({ ...this.state, [field]: event.currentTarget.value });
+
+  handleUploaderChange = (field: string) => (
     event: React.FormEvent<HTMLInputElement>,
   ) => this.setState({ ...this.state, [field]: event.currentTarget });
 
-  render() {
+  handleSubmit = () => {
+    this.setState({ isSubmitting: true });
+    const isValid = this.validateRequiredFields();
+    if (isValid) {
+      const { comment, name, photoInput, videoInput } = this.state;
+      createComment(
+        comment,
+        name,
+        get(photoInput, 'files'),
+        get(videoInput, 'files'),
+      )
+        .then(() => {
+          this.resetState();
+        })
+        .catch(error => {
+          this.setState({ isSubmitting: false });
+        });
+    }
+  };
+
+  validateRequiredFields = (): boolean => {
     const { comment, name } = this.state;
+    const errorMessage = 'This field is required';
+    const errors = {
+      comment: '',
+      name: '',
+    };
+    if (!comment) {
+      errors.comment = errorMessage;
+    }
+    if (!name) {
+      errors.name = errorMessage;
+    }
+    this.setState({ errors });
+
+    return !errors.comment && !errors.name;
+  };
+
+  resetState = () =>
+    this.setState({
+      comment: '',
+      errors: {},
+      isSubmitting: false,
+      name: '',
+      photoInput: null,
+      videoInput: null,
+    });
+
+  render() {
+    const { comment, errors, isSubmitting, name } = this.state;
+    const commentError = get(errors, 'comment');
+    const nameError = get(errors, 'name');
+
     return (
       <Container>
         <Typography paragraph variant="headline">
@@ -58,20 +121,26 @@ export class CommentForm extends React.Component<{}, CommentFormState> {
           powerful, and memorable experience.
         </Typography>
         <TextField
+          disabled={isSubmitting}
+          error={!!nameError}
           fullWidth
+          helperText={nameError}
           label="Name"
           margin="normal"
-          onChange={this.handleChange('name')}
+          onChange={this.handleTextFieldChange('name')}
           placeholder="Your full name"
           required
           value={name}
         />
         <TextField
+          disabled={isSubmitting}
+          error={!!commentError}
           fullWidth
+          helperText={commentError}
           label="Add your congratulations by writing a few lines"
           margin="normal"
           multiline
-          onChange={this.handleChange('comment')}
+          onChange={this.handleTextFieldChange('comment')}
           placeholder="Personal comment or congratulations"
           required
           value={comment}
@@ -85,7 +154,7 @@ export class CommentForm extends React.Component<{}, CommentFormState> {
           }
           multiple
           name="photos"
-          onChange={this.handleChange('photoInput')}
+          onChange={this.handleUploaderChange('photoInput')}
         />
         <StyledFileUploader
           accept="video/mp4,video/x-m4v,video/*"
@@ -95,9 +164,14 @@ export class CommentForm extends React.Component<{}, CommentFormState> {
               : 'Add a video (optional)'
           }
           name="video"
-          onChange={this.handleChange('videoInput')}
+          onChange={this.handleUploaderChange('videoInput')}
         />
-        <SubmitButton color="primary" variant="raised">
+        <SubmitButton
+          color="primary"
+          disabled={isSubmitting}
+          onClick={this.handleSubmit}
+          variant="raised"
+        >
           Submit
         </SubmitButton>
       </Container>

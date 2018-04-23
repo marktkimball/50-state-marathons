@@ -1,12 +1,13 @@
 import * as firebase from 'firebase';
 require('firebase/firestore');
+const config = require('clientconfig');
 
 firebase.initializeApp({
-  apiKey: process.env.FIRESTORE_API_KEY,
-  authDomain: process.env.FIRESTORE_AUTH_DOMAIN,
-  projectId: process.env.FIRESTORE_PROJECT_ID,
-  storageBucket: process.env.FIRESTORE_STORAGE_BUCKET,
+  apiKey: config.FIRESTORE_API_KEY,
+  authDomain: config.FIRESTORE_AUTH_DOMAIN,
+  projectId: config.FIRESTORE_PROJECT_ID,
+  storageBucket: config.FIRESTORE_STORAGE_BUCKET,
 });
 
 export const db = firebase.firestore();
-export const storage = firebase.storage();
+export const storageRef = firebase.storage().ref();

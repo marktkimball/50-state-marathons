@@ -11,3 +11,16 @@ export const getFileNames = (fileList: FileList) =>
     },
     '',
   );
+
+export const generateFileName = (file: File) =>
+  `${(Math.random() * 1e10) | 0}-${Date.now()}-${file.name}`;
+
+export const generateObjectFromArray = (arr: string[]) =>
+  reduce(
+    arr,
+    (obj, id) => {
+      obj[id] = true;
+      return obj;
+    },
+    {},
+  );

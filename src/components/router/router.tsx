@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import AppBar from 'material-ui/AppBar';
 import Icon from 'material-ui/Icon';
 import Tabs, { Tab } from 'material-ui/Tabs';
-import { MainContainer } from 'containers/main';
-import { CommentFormContainer } from 'containers/comment-form';
+import { Main } from 'components/main';
+import { CommentForm } from 'components/comment-form';
 
 interface RouterState {
   value: number;
@@ -14,7 +14,7 @@ const FlightIcon = styled(Icon)`
   transform: rotate(90deg);
 `;
 
-const Main = styled.main`
+const StyledMain = styled.main`
   padding: 0.8rem;
 
   @media (min-width: 769px) {
@@ -42,11 +42,11 @@ export class Router extends React.Component<{}, RouterState> {
             <Tab label="Say Congrats" icon={<Icon>chat_bubble</Icon>} />
           </Tabs>
         </AppBar>
-        <Main>
-          {value === 0 && <MainContainer />}
+        <StyledMain>
+          {value === 0 && <Main />}
           {value === 1 && <h1>The Journey</h1>}
-          {value === 2 && <CommentFormContainer />}
-        </Main>
+          {value === 2 && <CommentForm />}
+        </StyledMain>
       </>
     );
   }

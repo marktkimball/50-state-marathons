@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "clientconfig": "^1.1.1",
     "compression": "^1.7.2",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
@@ -37,10 +38,9 @@
     "firebase": "^4.12.1",
     "lodash": "^4.17.5",
     "material-ui": "^1.0.0-beta.41",
+    "moment": "^2.22.1",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
-    "react-redux": "^5.0.7",
-    "redux": "^3.7.2",
     "styled-components": "^3.2.6",
     "uglifyjs-webpack-plugin": "^1.2.4"
   },
@@ -49,7 +49,6 @@
     "@types/lodash": "^4.14.107",
     "@types/react": "^16.3.9",
     "@types/react-dom": "^16.0.5",
-    "@types/react-redux": "^5.0.16",
     "awesome-typescript-loader": "^5.0.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
