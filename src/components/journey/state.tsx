@@ -10,7 +10,7 @@ export const State: React.SFC<StateProps> = ({ code }) => {
   const state = statesTable[code];
   return (
     <div>
-      <img src={require(`assets/state-icons/${state}.svg`)} />
+      <img src={require(`assets/state-icons/${code}.svg`)} />
       <Typography variant="headline">{state}</Typography>
     </div>
   );
