@@ -1,10 +1,18 @@
 import * as React from 'react';
+import { Route, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import AppBar from 'material-ui/AppBar';
 import Icon from 'material-ui/Icon';
 import Tabs, { Tab } from 'material-ui/Tabs';
 import { Main } from 'components/main';
 import { CommentForm } from 'components/comment-form';
+import { JourneyMain } from 'components/journey';
+
+interface RouterProps {
+  history: any;
+  location: any;
+  match: any;
+}
 
 interface RouterState {
   value: number;
@@ -22,17 +30,29 @@ const StyledMain = styled.main`
   }
 `;
 
-export class Router extends React.Component<{}, RouterState> {
-  static displayName = 'Router';
+class RouterComponent extends React.Component<RouterProps, RouterState> {
+  static displayName = 'RouterComponent';
+
+  routes = ['/', '/journey/CA', '/comment'];
 
   state = {
     value: 0,
   };
 
-  handleChange = (_event: any, value: number) => this.setState({ value });
+  componentWillMount() {
+    const index = this.routes.indexOf(this.props.location.pathname);
+    const value = index !== -1 ? index : 0;
+    this.setState({
+      value,
+    });
+  }
+
+  handleChange = (_event: any, value: number) => {
+    this.setState({ value });
+    this.props.history.push(this.routes[value]);
+  };
 
   render() {
-    const { value } = this.state;
     return (
       <>
         <AppBar position="static">
@@ -43,11 +63,13 @@ export class Router extends React.Component<{}, RouterState> {
           </Tabs>
         </AppBar>
         <StyledMain>
-          {value === 0 && <Main />}
-          {value === 1 && <h1>The Journey</h1>}
-          {value === 2 && <CommentForm />}
+          <Route exact path="/" component={Main} />
+          <Route path="/journey/:state" component={JourneyMain} />
+          <Route exact path="/comment" component={CommentForm} />
         </StyledMain>
       </>
     );
   }
 }
+
+export const Router = withRouter(RouterComponent);

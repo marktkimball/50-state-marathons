@@ -53,8 +53,12 @@ module.exports = {
         ],
       },
       {
-        test: /\.svg$/,
-        loader: 'svg-sprite-loader',
+        test: /.(ico|png|jpg|svg)(\?[a-z0-9=.]+)?$/,
+        loader: 'url-loader?limit=10000',
+      },
+      {
+        test: /.(woff(2)?|eot|ttf)(\?[a-z0-9=.]+)?$/,
+        loader: 'url-loader?limit=650000',
       },
     ],
   },
