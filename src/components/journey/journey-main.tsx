@@ -1,9 +1,9 @@
 import * as React from 'react';
-import styled from 'styled-components';
-import Paper from 'material-ui/Paper';
-import { Typography } from 'material-ui';
-import { State } from './';
 import { withRouter } from 'react-router-dom';
+import styled from 'styled-components';
+import grey from 'material-ui/colors/grey';
+import { marathons } from 'app-constants';
+import { State } from './';
 
 interface JourneyProps {
   history: any;
@@ -11,19 +11,46 @@ interface JourneyProps {
   match: any;
 }
 
-const Container = styled(Paper)`
-  padding: 3.2rem 1.6rem;
+const JourneyContainer = styled.main`
+  display: flex;
+  flex: 1;
+`;
+
+const CounterSection = styled.section`
+  background: #fff;
+  color: ${grey[300]};
+
+  flex: 1;
+`;
+
+const Count = styled.h1`
+  color: ${grey[300]};
+  font-size: 10rem;
+  margin: 12rem 5.6rem 0 0;
+  text-align: right;
+`;
+
+const MainSection = styled.section`
+  background: ${grey[50]};
+  flex: 3;
 `;
 
 class Journey extends React.Component<JourneyProps, {}> {
   static displayName = 'JourneyMain';
 
   render() {
+    const { state } = this.props.match.params;
+    const stateStats = marathons[state];
+
     return (
-      <Container>
-        <Typography variant="title">The Journey</Typography>
-        <State code={this.props.match.params.state} />
-      </Container>
+      <JourneyContainer>
+        <CounterSection>
+          <Count>{stateStats.count}</Count>
+        </CounterSection>
+        <MainSection>
+          <State code={state} stats={stateStats} />
+        </MainSection>
+      </JourneyContainer>
     );
   }
 }

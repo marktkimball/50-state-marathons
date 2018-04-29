@@ -22,14 +22,6 @@ const FlightIcon = styled(Icon)`
   transform: rotate(90deg);
 `;
 
-const StyledMain = styled.main`
-  padding: 0.8rem;
-
-  @media (min-width: 769px) {
-    padding: 10rem;
-  }
-`;
-
 class RouterComponent extends React.Component<RouterProps, RouterState> {
   static displayName = 'RouterComponent';
 
@@ -62,11 +54,9 @@ class RouterComponent extends React.Component<RouterProps, RouterState> {
             <Tab label="Say Congrats" icon={<Icon>chat_bubble</Icon>} />
           </Tabs>
         </AppBar>
-        <StyledMain>
-          <Route exact path="/" component={Main} />
-          <Route path="/journey/:state" component={JourneyMain} />
-          <Route exact path="/comment" component={CommentForm} />
-        </StyledMain>
+        <Route exact path="/" component={Main} />
+        <Route path="/journey/:state" component={JourneyMain} />
+        <Route exact path="/comment" component={CommentForm} />
       </>
     );
   }

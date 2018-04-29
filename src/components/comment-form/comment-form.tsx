@@ -21,6 +21,14 @@ interface CommentFormState {
   videoInput: HTMLInputElement | null;
 }
 
+const StyledMain = styled.main`
+  padding: 0.8rem;
+
+  @media (min-width: 769px) {
+    padding: 10rem;
+  }
+`;
+
 const Container = styled(Paper)`
   padding: 3.2rem 1.6rem;
 `;
@@ -109,72 +117,74 @@ export class CommentForm extends React.Component<{}, CommentFormState> {
     const nameError = get(errors, 'name');
 
     return (
-      <Container>
-        <Typography paragraph variant="headline">
-          Tom is about to run his 50th state in Montana! Let's celebrate!
-        </Typography>
-        <Typography paragraph>
-          We invite you to add a message that display in a virtual presentation
-          we are creating for Tom. Whether it is a brief note of
-          congratulations, a shared store or memory, or a few lines paying
-          tribute to Tom, each comment adds to this incredibly personal,
-          powerful, and memorable experience.
-        </Typography>
-        <TextField
-          disabled={isSubmitting}
-          error={!!nameError}
-          fullWidth
-          helperText={nameError}
-          label="Name"
-          margin="normal"
-          onChange={this.handleTextFieldChange('name')}
-          placeholder="Your full name"
-          required
-          value={name}
-        />
-        <TextField
-          disabled={isSubmitting}
-          error={!!commentError}
-          fullWidth
-          helperText={commentError}
-          label="Add your congratulations by writing a few lines"
-          margin="normal"
-          multiline
-          onChange={this.handleTextFieldChange('comment')}
-          placeholder="Personal comment or congratulations"
-          required
-          value={comment}
-        />
-        <StyledFileUploader
-          accept="image/*"
-          label={
-            !!this.state.photoInput
-              ? getFileNames(get(this, 'state.photoInput.files'))
-              : 'Add a photo (optional)'
-          }
-          multiple
-          name="photos"
-          onChange={this.handleUploaderChange('photoInput')}
-        />
-        <StyledFileUploader
-          accept="video/mp4,video/x-m4v,video/*"
-          label={
-            !!this.state.videoInput
-              ? getFileNames(get(this, 'state.videoInput.files'))
-              : 'Add a video (optional)'
-          }
-          name="video"
-          onChange={this.handleUploaderChange('videoInput')}
-        />
-        <SubmitButton
-          color="primary"
-          disabled={isSubmitting}
-          onClick={this.handleSubmit}
-          variant="raised"
-        >
-          Submit
-        </SubmitButton>
-      </Container>
+      <StyledMain>
+        <Container>
+          <Typography paragraph variant="headline">
+            Tom is about to run his 50th state in Montana! Let's celebrate!
+          </Typography>
+          <Typography paragraph>
+            We invite you to add a message that display in a virtual
+            presentation we are creating for Tom. Whether it is a brief note of
+            congratulations, a shared store or memory, or a few lines paying
+            tribute to Tom, each comment adds to this incredibly personal,
+            powerful, and memorable experience.
+          </Typography>
+          <TextField
+            disabled={isSubmitting}
+            error={!!nameError}
+            fullWidth
+            helperText={nameError}
+            label="Name"
+            margin="normal"
+            onChange={this.handleTextFieldChange('name')}
+            placeholder="Your full name"
+            required
+            value={name}
+          />
+          <TextField
+            disabled={isSubmitting}
+            error={!!commentError}
+            fullWidth
+            helperText={commentError}
+            label="Add your congratulations by writing a few lines"
+            margin="normal"
+            multiline
+            onChange={this.handleTextFieldChange('comment')}
+            placeholder="Personal comment or congratulations"
+            required
+            value={comment}
+          />
+          <StyledFileUploader
+            accept="image/*"
+            label={
+              !!this.state.photoInput
+                ? getFileNames(get(this, 'state.photoInput.files'))
+                : 'Add a photo (optional)'
+            }
+            multiple
+            name="photos"
+            onChange={this.handleUploaderChange('photoInput')}
+          />
+          <StyledFileUploader
+            accept="video/mp4,video/x-m4v,video/*"
+            label={
+              !!this.state.videoInput
+                ? getFileNames(get(this, 'state.videoInput.files'))
+                : 'Add a video (optional)'
+            }
+            name="video"
+            onChange={this.handleUploaderChange('videoInput')}
+          />
+          <SubmitButton
+            color="primary"
+            disabled={isSubmitting}
+            onClick={this.handleSubmit}
+            variant="raised"
+          >
+            Submit
+          </SubmitButton>
+        </Container>
+      </StyledMain>
     );
   }
 }

@@ -8,6 +8,8 @@ import './app.css';
 
 const Container = styled.div`
   background: ${grey[50]};
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
 `;
 
