@@ -44,6 +44,12 @@ const Variant = styled.span`
   font-weight: 600;
 `;
 
+const Paragraph = styled(Typography)`
+  && {
+    margin-bottom: 1.2rem;
+  }
+`;
+
 export const Main: React.SFC<{}> = () => {
   const bullet = <Bullet>•</Bullet>;
 
@@ -86,6 +92,57 @@ export const Main: React.SFC<{}> = () => {
                 the messenger Pheidippides running 150 miles from Athens to
                 Sparta before the battle, seeking help.
               </IndentTypography>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid xs={12}>
+          <Card>
+            <CardContent>
+              <Typography variant="headline" component="h2">
+                Motivation
+              </Typography>
+              <Paragraph>
+                The words of my mother over the phone even 18 years ago still
+                haunt my memory, “Tom, you better sit down, it’s your father”.
+                Although he was in excellent health at 69 years old, he had just
+                suffered an unexpected, sudden and massive stroke. He was now
+                being kept alive until I could get to Oakland to say goodbye to
+                him. Twelve hours later I was withdrawing life support and
+                witnessing the last few minutes of his wonderful, but too short,
+                life.
+              </Paragraph>
+              <Paragraph>
+                Besides being a great father, my dad was an adult cardiologist
+                promoting good cardiovascular health to his patients. He
+                practiced what he advised and became an avid runner. He’d wake
+                up early each morning and run five miles, but he’d never run a
+                race. In 1978, I ran my first marathon…in San Francisco. In
+                those days, there was little water and energy support from race
+                volunteers so Dad and Mom served as my support team. They would
+                drive to various points along the course in San Francisco where
+                they would cheer me on, give me a cup of water and a candy bar.
+                I could see the excitement in Dad’s face. I also saw a bit of
+                disappointment that he wasn’t out there running with me. Thanks
+                to his help I finished that marathon. But I was in so much pain
+                that I swore I would never run another marathon again. Funny how
+                things can change…how minds can contemplate the previously
+                inconceivable…how a death of a loved one can affect one’s life
+                so profoundly.
+              </Paragraph>
+              <Paragraph>
+                After Dad’s death, I took up running again, 66 marathons to
+                date, in fact. I run in his honor. It’s intended to be an effort
+                to carry the torch that he lit for his patients and extend it to
+                my patients. I’m often asked what I think about during the long
+                hours of these marathons. I think a lot about Dad. I think about
+                his legacy. I think about my patients, some of whom are not only
+                in my races but passing me by!
+              </Paragraph>
+              <Paragraph>
+                In 2018, I will run in memory of Dad’s legacy and in honor of my
+                inspirational patients who have overcome so much adversity in
+                their lives and are an example to us all.{' '}
+              </Paragraph>
             </CardContent>
           </Card>
         </Grid>
