@@ -370,32 +370,20 @@ export const marathons = {
   OK: {
     city: 'Tulsa',
     count: 47,
-    date: '2017-1-19T00:00:00.000Z',
+    date: '2017-01-19T00:00:00.000Z',
     nextState: 'ME',
     prevState: 'RI',
     review: `Top 10 Reasons to Run Route 66
-
     10 - Start Line - the most organized, hassle-free and non-chaotic Start Line I've experienced
-
     9 - Native American ceremony before National Anthem - a distinct Oklahoma stamp on the race
-
     8 - Confetti guns at Start Line - they make you feel like you're a hero in a ticker tape parade as you get showered with confetti crossing the Start Line
-
     7 - Tulsa PD - amazing job managing the dozens/hundreds of intersections
-
     6 - Fall foliage and beautiful neighborhoods
-
     5 - Swag - very cool race jacket
-
     4 - Course organization - Mile markers and Gatorade/water stops were clearly organized and signed
-
     3 - Center of the Universe - what other marathon give you the option to brag that you've also run an "ultra"
-
     2 - Hills - in trying to think of a good thing to say about the relentless hills, I came up with this: Know that as you cross the Finish Line for the Route 66, you will have completed one of the most difficult marathons (the MOST difficult of my 66 thus far)!
-
-    1 - Medal - even though the hills may prohibit a PR, you will be gifted with "speed" with the wonderful "Goddess of Speed" medal at the Finish Line. One of the best medals!
-
-    `,
+    1 - Medal - even though the hills may prohibit a PR, you will be gifted with "speed" with the wonderful "Goddess of Speed" medal at the Finish Line. One of the best medals!`,
     state: 'OK',
     time: '5:31:30',
   },

@@ -76,6 +76,31 @@ const NavIcon = styled(Icon)`
   }
 `;
 
+const ReviewText = styled(Typography)`
+  font-style: italic;
+  position: relative;
+  white-space: pre-line;
+`;
+
+const QuoteIcon = styled(Icon)`
+  opacity: 0.2;
+  position: absolute;
+  && {
+    font-size: 10rem;
+  }
+`;
+
+const TopQuote = styled(QuoteIcon)`
+  left: -2.4rem;
+  top: -2.4rem;
+  transform: rotate(180deg);
+`;
+
+const BottomQuote = styled(QuoteIcon)`
+  bottom: -3.4rem;
+  right: -2.4rem;
+`;
+
 export const State: React.SFC<StateProps> = ({ code, stats }) => {
   const state = statesTable[code];
 
@@ -101,13 +126,29 @@ export const State: React.SFC<StateProps> = ({ code, stats }) => {
             <StateHeader>{state}</StateHeader>
             <Underline />
             <StatRow>
-              <Typography variant="title">City: </Typography>
+              <Typography variant="title">City</Typography>
               {stats.city}
             </StatRow>
             <StatRow>
-              <Typography variant="title">Date: </Typography>
+              <Typography variant="title">Date</Typography>
               {moment(stats.date).format('MMMM DD, YYYY')}
             </StatRow>
+            {stats.time && (
+              <StatRow>
+                <Typography variant="title">Time</Typography>
+                {stats.time}
+              </StatRow>
+            )}
+            {stats.review && (
+              <StatRow>
+                <Typography variant="title">Tom's Thoughts</Typography>
+                <ReviewText>
+                  <TopQuote>format_quote</TopQuote>
+                  {stats.review}
+                  <BottomQuote>format_quote</BottomQuote>
+                </ReviewText>
+              </StatRow>
+            )}
           </StatsContainer>
         </Grid>
       </StateContainer>
