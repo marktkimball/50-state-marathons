@@ -95,7 +95,7 @@ export const Main: React.SFC<{}> = () => {
             </CardContent>
           </Card>
         </Grid>
-        <Grid xs={12}>
+        <Grid item xs={12}>
           <Card>
             <CardContent>
               <Typography variant="headline" component="h2">

@@ -23,6 +23,11 @@ interface StateProps {
   };
 }
 
+interface StateState {
+  inTransit: boolean;
+  previousState?: StateProps;
+}
+
 const StateContainer = styled(Grid)`
   margin: 16rem 0 0 -16rem;
 `;
@@ -101,57 +106,74 @@ const BottomQuote = styled(QuoteIcon)`
   right: -2.4rem;
 `;
 
-export const State: React.SFC<StateProps> = ({ code, stats }) => {
-  const state = statesTable[code];
+export class State extends React.Component<StateProps, StateState> {
+  static displayName = 'State';
 
-  return (
-    <>
-      <StateContainer container>
-        <Grid item xs={12} sm={6}>
-          <StateImage
-            alt={state}
-            src={require(`assets/state-icons/${code}.svg`)}
-          />
-          <NavBlock>
-            <Link to={`/journey/${stats.prevState}`}>
-              <NavIcon>chevron_left</NavIcon>
-            </Link>
-            <Link to={`/journey/${stats.nextState}`}>
-              <NavIcon>chevron_right</NavIcon>
-            </Link>
-          </NavBlock>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <StatsContainer>
-            <StateHeader>{state}</StateHeader>
-            <Underline />
-            <StatRow>
-              <Typography variant="title">City</Typography>
-              {stats.city}
-            </StatRow>
-            <StatRow>
-              <Typography variant="title">Date</Typography>
-              {moment(stats.date).format('MMMM DD, YYYY')}
-            </StatRow>
-            {stats.time && (
+  state = {
+    inTransit: false,
+  };
+
+  componentWillReceiveProps(nextProps: StateProps) {
+    if (nextProps.code !== this.props.code) {
+      console.info('NEXT PROPS:', nextProps, 'current: ', this.props);
+      this.setState({ previousState: this.props });
+    }
+  }
+
+  render() {
+    const { code, stats } = this.props;
+    const state = statesTable[code];
+    console.info('PREV;', this.state);
+
+    return (
+      <>
+        <StateContainer container>
+          <Grid item xs={12} sm={6}>
+            <StateImage
+              alt={state}
+              src={require(`assets/state-icons/${code}.svg`)}
+            />
+            <NavBlock>
+              <Link to={`/journey/${stats.prevState}`}>
+                <NavIcon>chevron_left</NavIcon>
+              </Link>
+              <Link to={`/journey/${stats.nextState}`}>
+                <NavIcon>chevron_right</NavIcon>
+              </Link>
+            </NavBlock>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <StatsContainer>
+              <StateHeader>{state}</StateHeader>
+              <Underline />
               <StatRow>
-                <Typography variant="title">Time</Typography>
-                {stats.time}
+                <Typography variant="title">City</Typography>
+                {stats.city}
               </StatRow>
-            )}
-            {stats.review && (
               <StatRow>
-                <Typography variant="title">Tom's Thoughts</Typography>
-                <ReviewText>
-                  <TopQuote>format_quote</TopQuote>
-                  {stats.review}
-                  <BottomQuote>format_quote</BottomQuote>
-                </ReviewText>
+                <Typography variant="title">Date</Typography>
+                {moment(stats.date).format('MMMM DD, YYYY')}
               </StatRow>
-            )}
-          </StatsContainer>
-        </Grid>
-      </StateContainer>
-    </>
-  );
-};
+              {stats.time && (
+                <StatRow>
+                  <Typography variant="title">Time</Typography>
+                  {stats.time}
+                </StatRow>
+              )}
+              {stats.review && (
+                <StatRow>
+                  <Typography variant="title">Tom's Thoughts</Typography>
+                  <ReviewText>
+                    <TopQuote>format_quote</TopQuote>
+                    {stats.review}
+                    <BottomQuote>format_quote</BottomQuote>
+                  </ReviewText>
+                </StatRow>
+              )}
+            </StatsContainer>
+          </Grid>
+        </StateContainer>
+      </>
+    );
+  }
+}
