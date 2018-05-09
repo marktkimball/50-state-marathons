@@ -6,6 +6,7 @@ export const marathons = {
     nextState: 'OH',
     prevState: 'MT',
     state: 'CA',
+    time: '3:36:48',
   },
   OH: {
     city: 'Cincinnati',
