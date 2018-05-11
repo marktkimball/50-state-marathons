@@ -7,6 +7,7 @@ import Tabs, { Tab } from 'material-ui/Tabs';
 import { Main } from 'components/main';
 import { CommentForm } from 'components/comment-form';
 import { JourneyMain } from 'components/journey';
+import { Wall } from 'components/wall';
 
 interface RouterProps {
   history: any;
@@ -25,7 +26,7 @@ const FlightIcon = styled(Icon)`
 class RouterComponent extends React.Component<RouterProps, RouterState> {
   static displayName = 'RouterComponent';
 
-  routes = ['/', '/journey/CA', '/comment'];
+  routes = ['/', '/journey/CA', '/comment', '/wall'];
 
   state = {
     value: 0,
@@ -52,11 +53,13 @@ class RouterComponent extends React.Component<RouterProps, RouterState> {
             <Tab label="Beginnings" icon={<Icon>home</Icon>} />
             <Tab label="The Journey" icon={<FlightIcon>flight</FlightIcon>} />
             <Tab label="Say Congrats" icon={<Icon>chat_bubble</Icon>} />
+            <Tab label="The Wall" icon={<Icon>cake</Icon>} />
           </Tabs>
         </AppBar>
         <Route exact path="/" component={Main} />
         <Route path="/journey/:state" component={JourneyMain} />
         <Route exact path="/comment" component={CommentForm} />
+        <Route exact path="/wall" component={Wall} />
       </>
     );
   }

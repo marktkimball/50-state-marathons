@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { get } from 'lodash';
 import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';
+import Snackbar from 'material-ui/Snackbar';
 import TextField from 'material-ui/TextField';
 import { Typography } from 'material-ui';
 import { FileUploader } from 'components/file-uploader';
@@ -17,6 +18,7 @@ interface CommentFormState {
   };
   isSubmitting: boolean;
   name: string;
+  open: boolean;
   photoInput: HTMLInputElement | null;
   videoInput: HTMLInputElement | null;
 }
@@ -51,6 +53,7 @@ export class CommentForm extends React.Component<{}, CommentFormState> {
     errors: {},
     isSubmitting: false,
     name: '',
+    open: false,
     photoInput: null,
     videoInput: null,
   };
@@ -69,12 +72,13 @@ export class CommentForm extends React.Component<{}, CommentFormState> {
     if (isValid) {
       const { comment, name, photoInput, videoInput } = this.state;
       createComment(
-        comment,
         name,
+        comment,
         get(photoInput, 'files'),
         get(videoInput, 'files'),
       )
         .then(() => {
+          this.setState({ open: true });
           this.resetState();
         })
         .catch(error => {
@@ -112,7 +116,7 @@ export class CommentForm extends React.Component<{}, CommentFormState> {
     });
 
   render() {
-    const { comment, errors, isSubmitting, name } = this.state;
+    const { comment, errors, isSubmitting, open, name } = this.state;
     const commentError = get(errors, 'comment');
     const nameError = get(errors, 'name');
 
@@ -184,6 +188,15 @@ export class CommentForm extends React.Component<{}, CommentFormState> {
             Submit
           </SubmitButton>
         </Container>
+        <Snackbar
+          anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
+          autoHideDuration={6000}
+          SnackbarContentProps={{
+            'aria-describedby': 'message-id',
+          }}
+          message={<span id="message-id">Successfully created comment!</span>}
+          open={open}
+        />
       </StyledMain>
     );
   }
