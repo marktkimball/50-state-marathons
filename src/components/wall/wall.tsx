@@ -8,15 +8,13 @@ import { getComments } from 'services';
 interface WallProps {}
 
 interface WallState {
-  comments: Comment[];
+  comments?: Comment[];
 }
 
 export class Wall extends React.Component<WallProps, WallState> {
   static displayName = 'Wall';
 
-  state = {
-    comments: [],
-  };
+  state: WallState = {};
 
   componentWillMount() {
     getComments().then(comments => {
