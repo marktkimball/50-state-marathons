@@ -2,7 +2,7 @@ export const marathons = {
   CA: {
     city: 'San Francisco',
     count: 1,
-    date: '1979-08-26T00:00:00.000Z',
+    date: '1979-08-26',
     nextState: 'OH',
     prevState: 'MT',
     state: 'CA',
@@ -11,7 +11,7 @@ export const marathons = {
   OH: {
     city: 'Cincinnati',
     count: 2,
-    date: '2000-05-14T00:00:00.000Z',
+    date: '2000-05-14',
     nextState: 'MA',
     prevState: 'CA',
     review: `A very rainy start but a very well organized race. Race support was great even though we had less than ideal conditions.`,
@@ -21,7 +21,7 @@ export const marathons = {
   MA: {
     city: 'Boston',
     count: 3,
-    date: '2002-04-15T00:00:00.000Z',
+    date: '2002-04-15',
     nextState: 'NY',
     prevState: 'OH',
     state: 'MA',
@@ -30,7 +30,7 @@ export const marathons = {
   NY: {
     city: 'New York',
     count: 4,
-    date: '2003-11-02T00:00:00.000Z',
+    date: '2003-11-02',
     nextState: 'IL',
     prevState: 'MA',
     state: 'NY',
@@ -39,7 +39,7 @@ export const marathons = {
   IL: {
     city: 'Chicago',
     count: 5,
-    date: '2004-10-10T00:00:00.000Z',
+    date: '2004-10-10',
     nextState: 'MN',
     prevState: 'NY',
     state: 'IL',
@@ -48,7 +48,7 @@ export const marathons = {
   MN: {
     city: 'Minneapolis',
     count: 6,
-    date: '2006-10-01T00:00:00.000Z',
+    date: '2006-10-01',
     nextState: 'AZ',
     prevState: 'IL',
     state: 'MN',
@@ -57,7 +57,7 @@ export const marathons = {
   AZ: {
     city: 'Phoenix',
     count: 7,
-    date: '2007-01-14T00:00:00.000Z',
+    date: '2007-01-14',
     nextState: 'MO',
     prevState: 'MN',
     state: 'AZ',
@@ -66,7 +66,7 @@ export const marathons = {
   MO: {
     city: 'St. Louis',
     count: 8,
-    date: '2007-04-15T00:00:00.000Z',
+    date: '2007-04-15',
     nextState: 'VA',
     prevState: 'AZ',
     state: 'MO',
@@ -75,7 +75,7 @@ export const marathons = {
   VA: {
     city: 'Alexandria',
     count: 9,
-    date: '2007-10-28T00:00:00.000Z',
+    date: '2007-10-28',
     nextState: 'WV',
     prevState: 'MO',
     state: 'VA',
@@ -84,7 +84,7 @@ export const marathons = {
   WV: {
     city: 'Williamson',
     count: 10,
-    date: '2009-06-13T00:00:00.000Z',
+    date: '2009-06-13',
     nextState: 'ID',
     prevState: 'VA',
     state: 'WV',
@@ -93,7 +93,7 @@ export const marathons = {
   ID: {
     city: 'Ashton',
     count: 11,
-    date: '2009-08-22T00:00:00.000Z',
+    date: '2009-08-22',
     nextState: 'KY',
     prevState: 'WV',
     state: 'ID',
@@ -102,7 +102,7 @@ export const marathons = {
   KY: {
     city: 'Louisville',
     count: 12,
-    date: '2010-04-24T00:00:00.000Z',
+    date: '2010-04-24',
     nextState: 'TN',
     prevState: 'ID',
     state: 'KY',
@@ -111,7 +111,7 @@ export const marathons = {
   TN: {
     city: 'Chattanooga',
     count: 13,
-    date: '2012-10-21T00:00:00.000Z',
+    date: '2012-10-21',
     nextState: 'FL',
     prevState: 'KY',
     state: 'TN',
@@ -120,7 +120,7 @@ export const marathons = {
   FL: {
     city: 'Orlando',
     count: 14,
-    date: '2013-01-13T00:00:00.000Z',
+    date: '2013-01-13',
     nextState: 'UT',
     prevState: 'TN',
     review: `This was my 31st marathon and it was certainly one of the best, if not the best, marathon experience I've had.
@@ -145,7 +145,7 @@ export const marathons = {
   UT: {
     city: 'Ogden',
     count: 15,
-    date: '2013-05-18T00:00:00.000Z',
+    date: '2013-05-18',
     nextState: 'HI',
     prevState: 'FL',
     review: `Although I left Ogden satisfied that I had completed one of the most mentally tough marathons of my 33, I had a profound sense of disappointment as well. Ninety-five percent of my disappointment was out of the hands of the organizers and everybody else because Mother Nature decided that it was time to soak Ogden, Eden, Huntsville and the entire course with an unrelenting and cold rain on Marathon Day. Hence, my disappointment, I chose Ogden because it is billed as one of the most beautiful marathon courses in the country. And although I still saw most of this beauty with roaring streams and waterfalls and steep canyons and the fog dancing in the hills, the true grandeur of my surroundings (the snow-capped peaks, the blue water of Pineview reservoir, the morning light glowing through the tall trees) was unfortunately lost. Let me make myself perfectly clear, this was obviously no fault of the race organizers, but still a disappointment.
@@ -168,7 +168,7 @@ export const marathons = {
   HI: {
     city: 'Kailua-Kona',
     count: 16,
-    date: '2013-06-23T00:00:00.000Z',
+    date: '2013-06-23',
     nextState: 'CO',
     prevState: 'UT',
     review: `The Kona Marathon provides a nice option for a summer marathon in Hawaii. Sure there were logistic issues but these could all be blamed on having to adjust to a new course route which required the organizers to:
@@ -190,7 +190,7 @@ export const marathons = {
   CO: {
     city: 'Aspen',
     count: 17,
-    date: '2013-07-20T00:00:00.000Z',
+    date: '2013-07-20',
     nextState: 'MI',
     prevState: 'HI',
     review: `The runner's comments of 2012 had me concerned so I emailed Sean, the Race Director, before the race. He claimed that the comments were either wrong or had all been corrected.
@@ -217,7 +217,7 @@ export const marathons = {
   MI: {
     city: 'Detroit',
     count: 18,
-    date: '2013-10-20T00:00:00.000Z',
+    date: '2013-10-20',
     nextState: 'PA',
     prevState: 'CO',
     review: `Detroit was my 36th marathon and my 18th state. It turned out to be one of my favorites! Detroit is a really beautiful city and the marathon makes sure that the runners realize this. From the beautiful sunrise over Canada as we crossed the Ambassador Bridge, to actually running across the border, to the riverside run in Windsor, to the tunnel back into the United States, to English Village homes, to Belle Isle...what a wonderful experience. One of the most scenic marathons I've ever run!
@@ -233,7 +233,7 @@ export const marathons = {
   PA: {
     city: 'Philadelphia',
     count: 19,
-    date: '2013-11-17T00:00:00.000Z',
+    date: '2013-11-17',
     nextState: 'MS',
     prevState: 'MI',
     review: `This was my 37th marathon and my 19th state. The Philadelphia marathon is good but not great. It was a yin/yang experience actually:
@@ -258,7 +258,7 @@ export const marathons = {
   MS: {
     city: 'Jackson',
     count: 20,
-    date: '2014-11-01T00:00:00.000Z',
+    date: '2014-11-01',
     nextState: 'KS',
     prevState: 'PA',
     state: 'MS',
@@ -267,7 +267,7 @@ export const marathons = {
   KS: {
     city: 'Olathe',
     count: 21,
-    date: '2014-04-26T00:00:00.000Z',
+    date: '2014-04-26',
     nextState: 'WI',
     prevState: 'MS',
     review: `Top 10 Reasons why this marathon (my 38th) is one of my most favorites:
@@ -287,7 +287,7 @@ export const marathons = {
   WI: {
     city: 'Green Bay',
     count: 22,
-    date: '2014-05-18T00:00:00.000Z',
+    date: '2014-05-18',
     nextState: 'WY',
     prevState: 'KS',
     review: `Top 10 Reasons to Run Green Bay:
@@ -307,7 +307,7 @@ export const marathons = {
   WY: {
     city: 'Jackson Hole',
     count: 23,
-    date: '2014-08-30T00:00:00.000Z',
+    date: '2014-08-30',
     nextState: 'IN',
     prevState: 'WI',
     state: 'WY',
@@ -316,7 +316,7 @@ export const marathons = {
   IN: {
     city: 'Indianapolis',
     count: 24,
-    date: '2014-11-01T00:00:00.000Z',
+    date: '2014-11-01',
     nextState: 'AL',
     prevState: 'WY',
     state: 'IN',
@@ -325,7 +325,7 @@ export const marathons = {
   AL: {
     city: 'Huntsville',
     count: 25,
-    date: '2014-12-13T00:00:00.000Z',
+    date: '2014-12-13',
     nextState: 'TX',
     prevState: 'IN',
     state: 'AL',
@@ -334,7 +334,7 @@ export const marathons = {
   TX: {
     city: 'Austin',
     count: 26,
-    date: '2015-02-15T00:00:00.000Z',
+    date: '2015-02-15',
     nextState: 'MD',
     prevState: 'AL',
     state: 'TX',
@@ -343,7 +343,7 @@ export const marathons = {
   MD: {
     city: 'Cumberland',
     count: 27,
-    date: '2015-03-28T00:00:00.000Z',
+    date: '2015-03-28',
     nextState: 'ND',
     prevState: 'TX',
     review: `Top 10 Bests
@@ -363,7 +363,7 @@ export const marathons = {
   ND: {
     city: 'Fargo',
     count: 28,
-    date: '2015-05-09T00:00:00.000Z',
+    date: '2015-05-09',
     nextState: 'VT',
     prevState: 'MD',
     review: `For a town of only 105,000, Fargo manages to put on quite the show with its marathon. Organization, uniqueness, course, spectators and volunteers, and swag rival and even top a lot of the big city marathons.
@@ -386,7 +386,7 @@ export const marathons = {
   VT: {
     city: 'Waitsfield',
     count: 29,
-    date: '2015-07-12T00:00:00.000Z',
+    date: '2015-07-12',
     nextState: 'WA',
     prevState: 'ND',
     review: `Top Ten Reasons to Run the Mad Marathon:
@@ -406,7 +406,7 @@ export const marathons = {
   WA: {
     city: 'Naches',
     count: 30,
-    date: '2015-10-24T00:00:00.000Z',
+    date: '2015-10-24',
     nextState: 'SC',
     prevState: 'VT',
     review: `First, the positives:
@@ -427,7 +427,7 @@ export const marathons = {
   SC: {
     city: 'Kiawah Island',
     count: 31,
-    date: '2015-12-12T00:00:00.000Z',
+    date: '2015-12-12',
     nextState: 'LA',
     prevState: 'WA',
     review: `Top 10 Reasons to Run Kiawah
@@ -447,7 +447,7 @@ export const marathons = {
   LA: {
     city: 'New Orleans',
     count: 32,
-    date: '2016-02-28T00:00:00.000Z',
+    date: '2016-02-28',
     nextState: 'NC',
     prevState: 'SC',
     review: `Top 10 Reasons to Run the New Orleans RNR!
@@ -467,7 +467,7 @@ export const marathons = {
   NC: {
     city: 'Asheville',
     count: 33,
-    date: '2016-03-13T00:00:00.000Z',
+    date: '2016-03-13',
     nextState: 'NM',
     prevState: 'LA',
     review: `10) Although the on-property hotels are quite stingy about allowing late check-out, there is a very accommodating YMCA in downtown Asheville (on Woodfin St) that provides access to their showers free of charge.
@@ -486,7 +486,7 @@ export const marathons = {
   NM: {
     city: 'Shiprock',
     count: 34,
-    date: '2016-05-07T00:00:00.000Z',
+    date: '2016-05-07',
     nextState: 'AK',
     prevState: 'NC',
     review: `Top 10 Reasons for Running Shiprock Marathon
@@ -506,7 +506,7 @@ export const marathons = {
   AK: {
     city: 'Anchorage',
     count: 35,
-    date: '2016-06-18T00:00:00.000Z',
+    date: '2016-06-18',
     nextState: 'OR',
     prevState: 'NM',
     review: `Top 10 Reasons to Run Anchorage:
@@ -526,7 +526,7 @@ export const marathons = {
   OR: {
     city: 'Boring',
     count: 36,
-    date: '2016-09-18T00:00:00.000Z',
+    date: '2016-09-18',
     nextState: 'GA',
     prevState: 'AK',
     review: `Top 10 Reasons to Run the Boring Marathon
@@ -546,7 +546,7 @@ export const marathons = {
   GA: {
     city: 'Chickamauga',
     count: 37,
-    date: '2016-11-12T00:00:00.000Z',
+    date: '2016-11-12',
     nextState: 'NV',
     prevState: 'OR',
     review: `Top 10 Reasons for Running Chickamauga
@@ -566,7 +566,7 @@ export const marathons = {
   NV: {
     city: 'Lake Mead',
     count: 38,
-    date: '2017-01-14T00:00:00.000Z',
+    date: '2017-01-14',
     nextState: 'AR',
     prevState: 'GA',
     state: 'NV',
@@ -575,7 +575,7 @@ export const marathons = {
   AR: {
     city: 'Little Rock',
     count: 39,
-    date: '2017-03-05T00:00:00.000Z',
+    date: '2017-03-05',
     nextState: 'DE',
     prevState: 'NV',
     review: `Top 10 Reasons to Run Little Rock
@@ -595,7 +595,7 @@ export const marathons = {
   DE: {
     city: 'Dewey Beach',
     count: 40,
-    date: '2017-04-23T00:00:00.000Z',
+    date: '2017-04-23',
     nextState: 'NE',
     prevState: 'AR',
     review: `Top 10 Reasons to Run the Coastal Delaware Running Festival Marathon:
@@ -615,7 +615,7 @@ export const marathons = {
   NE: {
     city: 'Lincoln',
     count: 41,
-    date: '2017-05-07T00:00:00.000Z',
+    date: '2017-05-07',
     nextState: 'CT',
     prevState: 'DE',
     review: `Top Ten Reasons to Run Lincoln (Despite the mentally-tough 6.5 mile finishing out and back and the 2017 hot temperatures)!
@@ -635,7 +635,7 @@ export const marathons = {
   CT: {
     city: 'Waterbury',
     count: 42,
-    date: '2017-05-29T00:00:00.000Z',
+    date: '2017-05-29',
     nextState: 'IA',
     prevState: 'NE',
     review: `Top Ten Reasons to Run the Oh Boy
@@ -655,7 +655,7 @@ export const marathons = {
   IA: {
     city: 'Dubuque',
     count: 43,
-    date: '2017-06-24T00:00:00.000Z',
+    date: '2017-06-24',
     nextState: 'NH',
     prevState: 'CT',
     review: `Top Ten Reasons to Run the Run4Troops:
@@ -675,7 +675,7 @@ export const marathons = {
   NH: {
     city: 'Keene',
     count: 44,
-    date: '2017-09-24T00:00:00.000Z',
+    date: '2017-09-24',
     nextState: 'NJ',
     prevState: 'IA',
     review: `Top 10 Reasons to run the Clarence DeMar
@@ -695,7 +695,7 @@ export const marathons = {
   NJ: {
     city: 'Atlantic City',
     count: 45,
-    date: '2017-10-22T00:00:00.000Z',
+    date: '2017-10-22',
     nextState: 'RI',
     prevState: 'NH',
     review: `10 - The t- shirt - a two-tone long sleeve shirt
@@ -714,7 +714,7 @@ export const marathons = {
   RI: {
     city: 'Narragansett',
     count: 46,
-    date: '2017-10-29T00:00:00.000Z',
+    date: '2017-10-29T00:00:00.000-05:00',
     nextState: 'OK',
     prevState: 'NJ',
     review: `Top 10 Reasons to Run Narragansett
@@ -734,7 +734,7 @@ export const marathons = {
   OK: {
     city: 'Tulsa',
     count: 47,
-    date: '2017-11-19T00:00:00.000Z',
+    date: '2017-11-19',
     nextState: 'ME',
     prevState: 'RI',
     review: `Top 10 Reasons to Run Route 66
@@ -754,7 +754,7 @@ export const marathons = {
   ME: {
     city: 'Kennebunkport',
     count: 48,
-    date: '2018-05-13T00:00:00.000Z',
+    date: '2018-05-13',
     nextState: 'SD',
     prevState: 'OK',
     state: 'ME',
@@ -762,7 +762,7 @@ export const marathons = {
   SD: {
     city: 'Deadwood',
     count: 49,
-    date: '2018-06-03T00:00:00.000Z',
+    date: '2018-06-03',
     nextState: 'MT',
     prevState: 'ME',
     state: 'SD',
@@ -770,7 +770,7 @@ export const marathons = {
   MT: {
     city: 'Missoula',
     count: 50,
-    date: '2018-07-15T00:00:00.000Z',
+    date: '2018-07-15',
     nextState: 'CA',
     prevState: 'SD',
     state: 'MT',
