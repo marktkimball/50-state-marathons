@@ -1,4 +1,3 @@
-import * as moment from 'moment';
 import { map } from 'lodash';
 import { db, storageRef } from 'app-constants';
 import { generateFileName, generateObjectFromArray } from 'utils';
@@ -23,7 +22,7 @@ export const createComment = (
       name,
       id: newCommentRef.id,
       videoId: videoId || null,
-      createdAt: moment().toISOString(),
+      createdAt: new Date().toISOString(),
       photoIds: photoIds ? generateObjectFromArray(photoIds) : null,
     });
   });
@@ -37,7 +36,7 @@ const uploadFile = (fileType: 'photo' | 'video', file?: File) => {
       .then(data =>
         createAttachment({
           fileType,
-          createdAt: moment().toISOString(),
+          createdAt: new Date().toISOString(),
           fileName: file.name,
           reference: data.metadata.fullPath,
           url: data.downloadURL,

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as moment from 'moment';
+import * as format from 'date-fns/format';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { statesTable } from 'app-constants';
@@ -130,7 +130,7 @@ export const State: React.SFC<StateProps> = ({ code, stats }) => {
             </StatRow>
             <StatRow>
               <Typography variant="title">Date</Typography>
-              {moment(stats.date).format('MMMM DD, YYYY')}
+              {format(stats.date, 'MMMM DD, YYYY')}
             </StatRow>
             {stats.time && (
               <StatRow>
