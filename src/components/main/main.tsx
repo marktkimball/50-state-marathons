@@ -32,7 +32,8 @@ const IndentTypography = styled(Typography)`
 const Media = styled(CardMedia)`
   && {
     background-position: top;
-    height: 60rem;
+    height: 0;
+    padding-top: 56.25%;
   }
 `;
 
