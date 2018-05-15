@@ -46,7 +46,7 @@ const uploadFile = (fileType: 'photo' | 'video', file?: File) => {
   return;
 };
 
-const createAttachment = (attachment: Attachment): Promise<string> => {
+const createAttachment = (attachment: Partial<Attachment>): Promise<string> => {
   const newAttachmentRef = db.collection('attachments').doc();
   const id = newAttachmentRef.id;
   return newAttachmentRef.set({ ...attachment, id }).then(() => id);
