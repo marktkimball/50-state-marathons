@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import grey from 'material-ui/colors/grey';
-import Icon from 'material-ui/Icon';
-import { Typography } from 'material-ui';
+import grey from '@material-ui/core/colors/grey';
+import Icon from '@material-ui/core/Icon';
+import Typography from '@material-ui/core/Typography';
 
 interface FileUploaderProps {
   accept: string;

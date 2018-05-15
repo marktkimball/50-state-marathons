@@ -1,6 +1,6 @@
-import { createMuiTheme } from 'material-ui/styles';
-import blue from 'material-ui/colors/blue';
-import amber from 'material-ui/colors/amber';
+import { createMuiTheme } from '@material-ui/core/styles';
+import blue from '@material-ui/core/colors/blue';
+import amber from '@material-ui/core/colors/amber';
 
 export const theme = createMuiTheme({
   typography: {

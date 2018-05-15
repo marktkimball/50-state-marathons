@@ -1,11 +1,11 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { get } from 'lodash';
-import Button from 'material-ui/Button';
-import Paper from 'material-ui/Paper';
-import Snackbar from 'material-ui/Snackbar';
-import TextField from 'material-ui/TextField';
-import { Typography } from 'material-ui';
+import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
+import Snackbar from '@material-ui/core/Snackbar';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 import { FileUploader } from 'components/file-uploader';
 import { getFileNames } from 'utils';
 import { createComment } from 'actions';
@@ -191,7 +191,7 @@ export class CommentForm extends React.Component<{}, CommentFormState> {
         <Snackbar
           anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
           autoHideDuration={6000}
-          SnackbarContentProps={{
+          ContentProps={{
             'aria-describedby': 'message-id',
           }}
           message={<span id="message-id">Successfully created comment!</span>}

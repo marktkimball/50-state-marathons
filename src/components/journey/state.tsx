@@ -3,12 +3,13 @@ import * as format from 'date-fns/format';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { statesTable } from 'app-constants';
-import blue from 'material-ui/colors/blue';
-import grey from 'material-ui/colors/grey';
-import Divider from 'material-ui/Divider';
-import Grid from 'material-ui/Grid';
-import Icon from 'material-ui/Icon';
-import { Typography } from 'material-ui';
+import blue from '@material-ui/core/colors/blue';
+import grey from '@material-ui/core/colors/grey';
+import Divider from '@material-ui/core/Divider';
+import Grid from '@material-ui/core/Grid';
+import Icon from '@material-ui/core/Icon';
+import Typography from '@material-ui/core/Typography';
+
 interface StateProps {
   code: string;
   stats: {

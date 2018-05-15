@@ -1,8 +1,10 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { get } from 'lodash';
-import { Typography } from 'material-ui';
-import Card, { CardContent, CardMedia } from 'material-ui/Card';
+import Typography from '@material-ui/core/Typography';
+import Card from '@material-ui/core/Card';
+import CardContent  from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
 import { Attachment, Comment } from 'interfaces';
 
 interface FanItemProps {

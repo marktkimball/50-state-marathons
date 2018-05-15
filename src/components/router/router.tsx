@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
-import AppBar from 'material-ui/AppBar';
-import Icon from 'material-ui/Icon';
-import Tabs, { Tab } from 'material-ui/Tabs';
+import AppBar from '@material-ui/core/AppBar';
+import Icon from '@material-ui/core/Icon';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 import { Main } from 'components/main';
 import { CommentForm } from 'components/comment-form';
 import { FansMain } from 'components/fans';

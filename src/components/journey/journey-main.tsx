@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
-import grey from 'material-ui/colors/grey';
+import grey from '@material-ui/core/colors/grey';
 import { marathons } from 'app-constants';
 import { State } from './';
 

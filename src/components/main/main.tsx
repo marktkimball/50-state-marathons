@@ -1,8 +1,10 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import Card, { CardContent, CardMedia } from 'material-ui/Card';
-import Grid from 'material-ui/Grid';
-import Typography from 'material-ui/Typography';
+import Card from '@material-ui/core/Card';
+import CardContent  from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 
 const california = require('assets/images/california.jpg');
 

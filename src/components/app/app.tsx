@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import grey from 'material-ui/colors/grey';
-import Typography from 'material-ui/Typography';
+import grey from '@material-ui/core/colors/grey';
+import Typography from '@material-ui/core/Typography';
 import { Router } from 'components/router';
 
 import './app.css';
