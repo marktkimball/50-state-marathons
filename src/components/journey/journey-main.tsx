@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import styled from 'styled-components';
 import grey from '@material-ui/core/colors/grey';
 import { marathons } from 'app-constants';
 import { State } from './';
 
-interface JourneyProps {
+interface JourneyProps extends RouteComponentProps<{}> {
   history: any;
   location: any;
   match: any;
@@ -35,7 +35,7 @@ const MainSection = styled.section`
   flex: 3;
 `;
 
-class Journey extends React.Component<JourneyProps, {}> {
+class Journey extends React.Component <JourneyProps, {}> {
   static displayName = 'JourneyMain';
 
   render() {

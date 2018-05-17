@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Route, withRouter } from 'react-router-dom';
+import { Route, RouteComponentProps, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import AppBar from '@material-ui/core/AppBar';
 import Icon from '@material-ui/core/Icon';
@@ -10,7 +10,7 @@ import { CommentForm } from 'components/comment-form';
 import { FansMain } from 'components/fans';
 import { JourneyMain } from 'components/journey';
 
-interface RouterProps {
+interface RouterProps extends RouteComponentProps<{}> {
   history: any;
   location: any;
   match: any;

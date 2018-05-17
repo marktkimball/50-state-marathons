@@ -19,7 +19,7 @@
       "components/*": ["components/*"],
       "interfaces/*": ["interfaces/*"],
       "theme/*": ["theme/*"]
-    }
+    },
   },
   "include": ["./src/**/*.ts", "./src/**/*.tsx"],
   "awesomeTypescriptLoaderOptions": {
