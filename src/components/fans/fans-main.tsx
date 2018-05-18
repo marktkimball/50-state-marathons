@@ -58,6 +58,11 @@ const DialogImage = styled.img`
   max-width: 100%;
 `;
 
+const DialogVideo = styled.video`
+  max-height: 50rem;
+  max-width: 100%;
+`;
+
 const ChevronIcon = styled(Icon)`
   && {
     color: ${grey[500]};
@@ -132,10 +137,16 @@ export class FansMain extends React.Component<{}, FansMainState> {
       <Masonary>
         {map(comments, comment => {
           const commentAttachments =
-            keys(comment.photoIds).length > 0
+            keys(comment.photoIds).length > 0 || comment.videoId
               ? filter(attachments, attachment => {
-                  if (comment.photoIds) {
+                  if (attachment.fileType === 'photo' && comment.photoIds) {
                     return !!comment.photoIds[attachment.id];
+                  }
+                  if (
+                    attachment.fileType === 'video' &&
+                    comment.videoId === attachment.id
+                  ) {
+                    return true;
                   }
                   return false;
                 })
@@ -149,52 +160,57 @@ export class FansMain extends React.Component<{}, FansMainState> {
             />
           );
         })}
-        <Dialog
-          fullScreen
-          onClose={() => this.toggleDialog()}
-          open={dialogOpen}
-        >
-          <DialogHeading>
-            <Toolbar>
-              <IconButton color="inherit" onClick={() => this.toggleDialog()}>
-                <Icon>close</Icon>
-              </IconButton>
-              <Typography variant="title" color="inherit">
-                Photos and Videos
-              </Typography>
-            </Toolbar>
-          </DialogHeading>
-          <DialogContentContainer
-            hasMultipleAttachments={hasMultipleAttachments}
+        {attachmentInView && (
+          <Dialog
+            fullScreen
+            onClose={() => this.toggleDialog()}
+            open={dialogOpen}
           >
-            {hasMultipleAttachments && (
-              <IconButton
-                color="inherit"
-                onClick={() => this.setViewIndex('decrement')}
-              >
-                <ChevronIcon>chevron_left</ChevronIcon>
-              </IconButton>
-            )}
-            <div>
-              {attachmentInView.fileType === 'image' ? (
-                <DialogImage src={get(attachmentInView, 'url') || undefined} />
-              ) : (
-                <video
-                  playsInline
-                  src={get(attachmentInView, 'url') || undefined}
-                />
+            <DialogHeading>
+              <Toolbar>
+                <IconButton color="inherit" onClick={() => this.toggleDialog()}>
+                  <Icon>close</Icon>
+                </IconButton>
+                <Typography variant="title" color="inherit">
+                  Photos and Videos
+                </Typography>
+              </Toolbar>
+            </DialogHeading>
+            <DialogContentContainer
+              hasMultipleAttachments={hasMultipleAttachments}
+            >
+              {hasMultipleAttachments && (
+                <IconButton
+                  color="inherit"
+                  onClick={() => this.setViewIndex('decrement')}
+                >
+                  <ChevronIcon>chevron_left</ChevronIcon>
+                </IconButton>
               )}
-            </div>
-            {hasMultipleAttachments && (
-              <IconButton
-                color="inherit"
-                onClick={() => this.setViewIndex('increment')}
-              >
-                <ChevronIcon>chevron_right</ChevronIcon>
-              </IconButton>
-            )}
-          </DialogContentContainer>
-        </Dialog>
+              <div>
+                {attachmentInView.fileType === 'photo' ? (
+                  <DialogImage
+                    src={get(attachmentInView, 'url') || undefined}
+                  />
+                ) : (
+                  <DialogVideo
+                    controls
+                    playsInline
+                    src={get(attachmentInView, 'url') || undefined}
+                  />
+                )}
+              </div>
+              {hasMultipleAttachments && (
+                <IconButton
+                  color="inherit"
+                  onClick={() => this.setViewIndex('increment')}
+                >
+                  <ChevronIcon>chevron_right</ChevronIcon>
+                </IconButton>
+              )}
+            </DialogContentContainer>
+          </Dialog>
+        )}
       </Masonary>
     );
   }

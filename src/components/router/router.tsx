@@ -54,7 +54,7 @@ class RouterComponent extends React.Component<RouterProps, RouterState> {
             <Tab label="His Beginnings" icon={<Icon>home</Icon>} />
             <Tab label="His Journey" icon={<FlightIcon>flight</FlightIcon>} />
             <Tab label="Say Congrats" icon={<Icon>chat_bubble</Icon>} />
-            <Tab label="His Fans" icon={<Icon>cake</Icon>} />
+            <Tab label="His Fans" icon={<Icon>star</Icon>} />
           </Tabs>
         </AppBar>
         <Route exact path="/" component={Main} />

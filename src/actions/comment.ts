@@ -1,4 +1,4 @@
-import { map } from 'lodash';
+import { get, map } from 'lodash';
 import { db, storageRef } from 'app-constants';
 import { generateFileName, generateObjectFromArray } from 'utils';
 import { Attachment } from 'interfaces';
@@ -7,11 +7,11 @@ export const createComment = (
   name: string,
   comment: string,
   photos?: File[],
-  video?: File,
+  video?: FileList,
 ) =>
   Promise.all([
     ...map(photos, file => uploadFile('photo', file)),
-    uploadFile('video', video),
+    uploadFile('video', get(video, '[0]', null)),
   ]).then(filePromises => {
     const videoId = filePromises.pop();
     const photoIds = filePromises;
@@ -34,13 +34,18 @@ const uploadFile = (fileType: 'photo' | 'video', file?: File) => {
       .child(`comments/${fileType}s/${fileName}`)
       .put(file)
       .then(data =>
-        createAttachment({
-          fileType,
-          createdAt: new Date().toISOString(),
-          fileName: file.name,
-          reference: data.metadata.fullPath,
-          url: data.downloadURL,
-        }),
+        storageRef
+          .child(data.metadata.fullPath)
+          .getDownloadURL()
+          .then(url =>
+            createAttachment({
+              fileType,
+              url,
+              createdAt: new Date().toISOString(),
+              fileName: file.name,
+              reference: data.metadata.fullPath,
+            }),
+          ),
       );
   }
   return;
