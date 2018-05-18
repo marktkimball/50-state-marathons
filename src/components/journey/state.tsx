@@ -1,17 +1,21 @@
 import * as React from 'react';
 import * as format from 'date-fns/format';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { statesTable } from 'app-constants';
 import blue from '@material-ui/core/colors/blue';
 import grey from '@material-ui/core/colors/grey';
 import Divider from '@material-ui/core/Divider';
+import Fade from '@material-ui/core/Fade';
 import Grid from '@material-ui/core/Grid';
 import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import Slide from '@material-ui/core/Slide';
 import Typography from '@material-ui/core/Typography';
 
 interface StateProps {
   code: string;
+  handleStateSwitch(route: string): void;
+  atRest: boolean;
   stats: {
     city: string;
     count: number;
@@ -102,54 +106,67 @@ const BottomQuote = styled(QuoteIcon)`
   right: -2.4rem;
 `;
 
-export const State: React.SFC<StateProps> = ({ code, stats }) => {
+export const State: React.SFC<StateProps> = ({
+  code,
+  handleStateSwitch,
+  atRest,
+  stats,
+}) => {
   const state = statesTable[code];
   return (
     <>
       <StateContainer container>
         <Grid item xs={12} sm={6}>
-          <StateImage
-            alt={state}
-            src={require(`assets/state-icons/${code}.svg`)}
-          />
+          <Slide direction="right" in={atRest} mountOnEnter unmountOnExit>
+            <StateImage
+              alt={state}
+              src={require(`assets/state-icons/${code}.svg`)}
+            />
+          </Slide>
           <NavBlock>
-            <Link to={`/journey/${stats.prevState}`}>
+            <IconButton
+              onClick={() => handleStateSwitch(`/journey/${stats.prevState}`)}
+            >
               <NavIcon>chevron_left</NavIcon>
-            </Link>
-            <Link to={`/journey/${stats.nextState}`}>
+            </IconButton>
+            <IconButton
+              onClick={() => handleStateSwitch(`/journey/${stats.nextState}`)}
+            >
               <NavIcon>chevron_right</NavIcon>
-            </Link>
+            </IconButton>
           </NavBlock>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <StatsContainer>
-            <StateHeader>{state}</StateHeader>
-            <Underline />
-            <StatRow>
-              <Typography variant="title">City</Typography>
-              {stats.city}
-            </StatRow>
-            <StatRow>
-              <Typography variant="title">Date</Typography>
-              {format(stats.date, 'MMMM DD, YYYY')}
-            </StatRow>
-            {stats.time && (
+          <Fade in={atRest}>
+            <StatsContainer>
+              <StateHeader>{state}</StateHeader>
+              <Underline />
               <StatRow>
-                <Typography variant="title">Time</Typography>
-                {stats.time}
+                <Typography variant="title">City</Typography>
+                {stats.city}
               </StatRow>
-            )}
-            {stats.review && (
               <StatRow>
-                <Typography variant="title">Tom's Thoughts</Typography>
-                <ReviewText>
-                  <TopQuote>format_quote</TopQuote>
-                  {stats.review}
-                  <BottomQuote>format_quote</BottomQuote>
-                </ReviewText>
+                <Typography variant="title">Date</Typography>
+                {format(stats.date, 'MMMM DD, YYYY')}
               </StatRow>
-            )}
-          </StatsContainer>
+              {stats.time && (
+                <StatRow>
+                  <Typography variant="title">Time</Typography>
+                  {stats.time}
+                </StatRow>
+              )}
+              {stats.review && (
+                <StatRow>
+                  <Typography variant="title">Tom's Thoughts</Typography>
+                  <ReviewText>
+                    <TopQuote>format_quote</TopQuote>
+                    {stats.review}
+                    <BottomQuote>format_quote</BottomQuote>
+                  </ReviewText>
+                </StatRow>
+              )}
+            </StatsContainer>
+          </Fade>
         </Grid>
       </StateContainer>
     </>
