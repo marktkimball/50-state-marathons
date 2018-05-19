@@ -70,10 +70,15 @@ const NavBlock = styled.div`
   margin: 4rem 0 0 8.6rem;
 `;
 
+const NavButton = styled(IconButton)`
+  && {
+    margin: 0 1.2rem;
+  }
+`;
+
 const NavIcon = styled(Icon)`
   && {
     color: ${grey[500]};
-    margin: 0 2.4rem;
     transition: all 300ms ease-in-out;
   }
   :hover {
@@ -124,16 +129,16 @@ export const State: React.SFC<StateProps> = ({
             />
           </Slide>
           <NavBlock>
-            <IconButton
+            <NavButton
               onClick={() => handleStateSwitch(`/journey/${stats.prevState}`)}
             >
               <NavIcon>chevron_left</NavIcon>
-            </IconButton>
-            <IconButton
+            </NavButton>
+            <NavButton
               onClick={() => handleStateSwitch(`/journey/${stats.nextState}`)}
             >
               <NavIcon>chevron_right</NavIcon>
-            </IconButton>
+            </NavButton>
           </NavBlock>
         </Grid>
         <Grid item xs={12} sm={6}>

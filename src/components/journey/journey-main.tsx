@@ -25,7 +25,6 @@ const JourneyContainer = styled.main`
 const CounterSection = styled.section`
   background: #fff;
   color: ${grey[300]};
-
   flex: 1;
 `;
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import Card from '@material-ui/core/Card';
-import CardContent  from '@material-ui/core/CardContent';
+import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -59,7 +59,7 @@ export const Main: React.SFC<{}> = () => {
   return (
     <StyledMain>
       <Grid container spacing={16}>
-        <Grid item xs={12} sm={8}>
+        <Grid item xs={12} sm={12} md={8}>
           <Card>
             <Media image={california} title="San Francisco, CA - 1979" />
             <CardContent>
@@ -67,7 +67,7 @@ export const Main: React.SFC<{}> = () => {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} sm={4}>
+        <Grid item xs={12} sm={12} md={4}>
           <Card>
             <CardContent>
               <Typography variant="headline" component="h2">

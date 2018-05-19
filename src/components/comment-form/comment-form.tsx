@@ -124,12 +124,13 @@ export class CommentForm extends React.Component<{}, CommentFormState> {
       <StyledMain>
         <Container>
           <Typography paragraph variant="headline">
-            Tom is about to run his 50th state in Montana! Let's celebrate!
+            Tom is about to complete his goal of running a marathon in all 50
+            states! Let's celebrate!
           </Typography>
           <Typography paragraph>
-            We invite you to add a message that display in a virtual
+            We invite you to add a message that will be displayed in a virtual
             presentation we are creating for Tom. Whether it is a brief note of
-            congratulations, a shared store or memory, or a few lines paying
+            congratulations, a shared story or memory, or a few lines paying
             tribute to Tom, each comment adds to this incredibly personal,
             powerful, and memorable experience.
           </Typography>
