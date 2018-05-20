@@ -1,7 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import grey from '@material-ui/core/colors/grey';
-import blue from '@material-ui/core/colors/blue';
 import { Router } from 'components/router';
 
 import './app.css';
@@ -13,22 +12,29 @@ const Container = styled.div`
   min-height: 100vh;
 `;
 
+const TitleContainer = styled.div`
+  align-items: center;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+`;
+
 const Title = styled.h1`
-  background: ${blue[500]};
-  border-bottom: 0.2rem solid #fff;
-  color: #fff;
+  color: ${grey[800]};
   font-size: 7.2rem;
   font-style: italic;
-  font-weight: 400;
-  line-height: 14.4rem;
+  line-height: 7.2rem;
   margin: 0;
+  padding: 2.4rem 0;
   text-align: center;
-  z-index: 2;
 `;
 
 export const App: React.SFC<{}> = () => (
   <Container>
-    <Title>The Road to 50 States</Title>
+    <TitleContainer>
+      <Title>The Road to 50 States</Title>
+    </TitleContainer>
     <Router />
   </Container>
 );
