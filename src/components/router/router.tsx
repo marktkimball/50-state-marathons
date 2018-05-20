@@ -50,7 +50,7 @@ class RouterComponent extends React.Component<RouterProps, RouterState> {
     return (
       <>
         <AppBar position="static">
-          <Tabs value={this.state.value} onChange={this.handleChange}>
+          <Tabs onChange={this.handleChange} value={this.state.value}>
             <Tab label="His Beginnings" icon={<Icon>home</Icon>} />
             <Tab label="His Journey" icon={<FlightIcon>flight</FlightIcon>} />
             <Tab label="Say Congrats" icon={<Icon>chat_bubble</Icon>} />

@@ -95,7 +95,11 @@ export class FansMain extends React.Component<{}, FansMainState> {
   toggleDialog = (attachments?: Attachment[]) => {
     const { dialogOpen } = this.state;
     if (dialogOpen) {
-      this.setState({ dialogAttachments: [], dialogOpen: false });
+      this.setState({
+        dialogAttachments: [],
+        dialogOpen: false,
+        viewIndex: 0,
+      });
     } else {
       this.setState({
         dialogAttachments: attachments || [],
