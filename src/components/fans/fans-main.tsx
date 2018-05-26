@@ -151,7 +151,6 @@ export class FansMain extends React.Component<{}, FansMainState> {
     const hasMultipleAttachments = dialogAttachments.length > 1;
     const attachmentInView = dialogAttachments[viewIndex];
 
-    const emptyComments: any[] = [];
     if (!attachmentsLoaded && !commentsLoaded) {
       return (
         <Loading>
@@ -160,7 +159,7 @@ export class FansMain extends React.Component<{}, FansMainState> {
       );
     }
 
-    if (get(emptyComments, 'length', 0) === 0) {
+    if (get(comments, 'length', 0) === 0) {
       return <EmptyComments />;
     }
 
