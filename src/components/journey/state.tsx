@@ -29,7 +29,14 @@ interface StateProps {
 }
 
 const StateContainer = styled(Grid)`
-  margin: 16rem 0 0 -16rem;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  @media (min-width: 769px) {
+    align-items: flex-start;
+    flex-direction: row;
+    margin: 16rem 0 0 -16rem;
+  }
 `;
 
 const StatsContainer = styled.div`
@@ -58,6 +65,10 @@ const Underline = styled(Divider)`
     margin-bottom: 2.4rem;
     width: 9.2rem;
   }
+`;
+
+const StatsGrid = styled(Grid)`
+  width: 100%;
 `;
 
 const StatRow = styled(Typography)`
@@ -119,62 +130,60 @@ export const State: React.SFC<StateProps> = ({
 }) => {
   const state = statesTable[code];
   return (
-    <>
-      <StateContainer container>
-        <Grid item xs={12} sm={6}>
-          <Slide direction="right" in={atRest} mountOnEnter unmountOnExit>
-            <StateImage
-              alt={state}
-              src={require(`assets/state-icons/${code}.svg`)}
-            />
-          </Slide>
-          <NavBlock>
-            <NavButton
-              onClick={() => handleStateSwitch(`/journey/${stats.prevState}`)}
-            >
-              <NavIcon>chevron_left</NavIcon>
-            </NavButton>
-            <NavButton
-              onClick={() => handleStateSwitch(`/journey/${stats.nextState}`)}
-            >
-              <NavIcon>chevron_right</NavIcon>
-            </NavButton>
-          </NavBlock>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Fade in={atRest}>
-            <StatsContainer>
-              <StateHeader>{state}</StateHeader>
-              <Underline />
+    <StateContainer container>
+      <Grid item xs={12} sm={12} md={6}>
+        <Slide direction="right" in={atRest} mountOnEnter unmountOnExit>
+          <StateImage
+            alt={state}
+            src={require(`assets/state-icons/${code}.svg`)}
+          />
+        </Slide>
+        <NavBlock>
+          <NavButton
+            onClick={() => handleStateSwitch(`/journey/${stats.prevState}`)}
+          >
+            <NavIcon>chevron_left</NavIcon>
+          </NavButton>
+          <NavButton
+            onClick={() => handleStateSwitch(`/journey/${stats.nextState}`)}
+          >
+            <NavIcon>chevron_right</NavIcon>
+          </NavButton>
+        </NavBlock>
+      </Grid>
+      <StatsGrid item xs={12} sm={12} md={6}>
+        <Fade in={atRest}>
+          <StatsContainer>
+            <StateHeader>{state}</StateHeader>
+            <Underline />
+            <StatRow>
+              <Typography variant="title">City</Typography>
+              {stats.city}
+            </StatRow>
+            <StatRow>
+              <Typography variant="title">Date</Typography>
+              {format(stats.date, 'MMMM DD, YYYY')}
+            </StatRow>
+            {stats.time && (
               <StatRow>
-                <Typography variant="title">City</Typography>
-                {stats.city}
+                <Typography variant="title">Time</Typography>
+                {stats.time}
               </StatRow>
+            )}
+            {stats.review && (
               <StatRow>
-                <Typography variant="title">Date</Typography>
-                {format(stats.date, 'MMMM DD, YYYY')}
+                <Typography variant="title">Tom's Thoughts</Typography>
+                <ReviewText>
+                  <TopQuote>format_quote</TopQuote>
+                  {stats.review}
+                  <BottomQuote>format_quote</BottomQuote>
+                </ReviewText>
               </StatRow>
-              {stats.time && (
-                <StatRow>
-                  <Typography variant="title">Time</Typography>
-                  {stats.time}
-                </StatRow>
-              )}
-              {stats.review && (
-                <StatRow>
-                  <Typography variant="title">Tom's Thoughts</Typography>
-                  <ReviewText>
-                    <TopQuote>format_quote</TopQuote>
-                    {stats.review}
-                    <BottomQuote>format_quote</BottomQuote>
-                  </ReviewText>
-                </StatRow>
-              )}
-            </StatsContainer>
-          </Fade>
-        </Grid>
-      </StateContainer>
-    </>
+            )}
+          </StatsContainer>
+        </Fade>
+      </StatsGrid>
+    </StateContainer>
   );
 };
 

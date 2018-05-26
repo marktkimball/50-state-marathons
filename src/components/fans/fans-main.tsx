@@ -2,24 +2,34 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { filter, get, keys, map } from 'lodash';
 import AppBar from '@material-ui/core/AppBar';
-import grey from '@material-ui/core/colors/grey';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
+import grey from '@material-ui/core/colors/grey';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { FanItem } from './';
+import { EmptyComments, FanItem } from './';
 import { Attachment, Comment } from 'interfaces';
 import { getAttachments, getComments } from 'services';
 
 interface FansMainState {
   attachments?: Attachment[];
+  attachmentsLoaded: boolean;
   comments?: Comment[];
+  commentsLoaded: boolean;
   dialogAttachments: Attachment[];
   dialogOpen: boolean;
   viewIndex: number;
 }
+
+const Loading = styled.div`
+  align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+`;
 
 const Masonary = styled.main`
   column-count: 1;
@@ -78,6 +88,8 @@ export class FansMain extends React.Component<{}, FansMainState> {
   static displayName = 'FanMain';
 
   state: FansMainState = {
+    attachmentsLoaded: false,
+    commentsLoaded: false,
     dialogAttachments: [],
     dialogOpen: false,
     viewIndex: 0,
@@ -85,10 +97,10 @@ export class FansMain extends React.Component<{}, FansMainState> {
 
   componentWillMount() {
     getComments().then(comments => {
-      this.setState({ comments });
+      this.setState({ comments, commentsLoaded: true });
     });
     getAttachments().then(attachments => {
-      this.setState({ attachments });
+      this.setState({ attachments, attachmentsLoaded: true });
     });
   }
 
@@ -129,13 +141,28 @@ export class FansMain extends React.Component<{}, FansMainState> {
   render() {
     const {
       attachments,
+      attachmentsLoaded,
       comments,
+      commentsLoaded,
       dialogAttachments,
       dialogOpen,
       viewIndex,
     } = this.state;
     const hasMultipleAttachments = dialogAttachments.length > 1;
     const attachmentInView = dialogAttachments[viewIndex];
+
+    const emptyComments: any[] = [];
+    if (!attachmentsLoaded && !commentsLoaded) {
+      return (
+        <Loading>
+          <CircularProgress size={70} thickness={4} />
+        </Loading>
+      );
+    }
+
+    if (get(emptyComments, 'length', 0) === 0) {
+      return <EmptyComments />;
+    }
 
     return (
       <Masonary>

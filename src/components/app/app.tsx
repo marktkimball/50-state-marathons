@@ -25,7 +25,7 @@ const Title = styled.h1`
   font-size: 7.2rem;
   font-style: italic;
   line-height: 7.2rem;
-  margin: 0;
+  margin: 0 1.6rem;
   padding: 2.4rem 0;
   text-align: center;
 `;

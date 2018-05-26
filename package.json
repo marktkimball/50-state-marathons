@@ -5,7 +5,7 @@
   "main": "index.js",
   "engines": {
     "node": ">=8.9.4",
-    "yarn": "1.6.0"
+    "yarn": ">=1.6.0"
   },
   "repository": "https://github.com/marktkimball/50-state-marathons.git",
   "author": "marktkimball <mark.kimball@octanner.com>",
@@ -20,13 +20,8 @@
     "serve": "node server.js"
   },
   "babel": {
-    "presets": [
-      "stage-0",
-      "react"
-    ],
-    "plugins": [
-      "transform-strict-mode"
-    ]
+    "presets": ["stage-0", "react"],
+    "plugins": ["transform-strict-mode"]
   },
   "dependencies": {
     "@material-ui/core": "^1.0.0",
