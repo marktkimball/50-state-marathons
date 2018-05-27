@@ -4,8 +4,8 @@
   "description": "Website for my dad's 50th marathon state",
   "main": "index.js",
   "engines": {
-    "node": ">=8.9.4",
-    "yarn": ">=1.6.0"
+    "node": "10.2.1",
+    "yarn": "1.7.0"
   },
   "repository": "https://github.com/marktkimball/50-state-marathons.git",
   "author": "marktkimball <mark.kimball@octanner.com>",
