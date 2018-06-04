@@ -757,7 +757,19 @@ export const marathons = {
     date: '2018-05-13',
     nextState: 'SD',
     prevState: 'OK',
+    review: `Top 10 Reasons to Run the Maine Coast Marathon
+    10) The enthusiasm of Michael the DJ throughout the day from the Start Line to urging the last runners across the Finish Line
+    9) Where else can you have a celebratory dinner with Maine Lobster?
+    8) A potential side trip to Acadia National Park- one of the most amazing places where ocean meets land
+    7) Some really nice Bed and Breakfast Inns in Kennebunkport - Captain Jefferd's Inn is just one
+    6) Viewing the Bush compound on Walker's Point
+    5) The finishing medal
+    4) Smelling the fresh salty breeze
+    3) Starting "gun" is a conch shell
+    2) Sunrise is so early that waking up for race start is easy
+    1) The scenery - 4 different sections of the Maine Coast - was the most beautiful of any marathon I've run`,
     state: 'ME',
+    time: '4:55:20',
   },
   SD: {
     city: 'Deadwood',
@@ -766,6 +778,7 @@ export const marathons = {
     nextState: 'MT',
     prevState: 'ME',
     state: 'SD',
+    time: '5:22:47',
   },
   MT: {
     city: 'Missoula',
