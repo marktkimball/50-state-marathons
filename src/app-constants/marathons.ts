@@ -114,6 +114,7 @@ export const marathons = {
     date: '2012-10-21',
     nextState: 'FL',
     prevState: 'KY',
+    review: `** Making her first marathon trip, Dana joins Tom’s Road to 50 States. She would miss only one marathon from here on out (Fargo, ND #28). **`,
     state: 'TN',
     time: '4:41:38',
   },
@@ -777,6 +778,17 @@ export const marathons = {
     date: '2018-06-03',
     nextState: 'MT',
     prevState: 'ME',
+    review: `Top 10 Reasons to Run Deadwood
+    10 - The course - the most beautiful I've run & mountain streams, forests, alpine meadows
+    9 - Southwest South Dakota - so much to see before and after the run (Badlands, Wall Drug, Mt. Rushmore, Crazy Horse, Custer State Park, Deadwood)
+    8 - Late start - the negative side is the late start exposes the runners to more heat, but the positive side is that you get to sleep in longer
+    7 - Water stations - there weren't enough but when you reached one, the water was refreshingly cold
+    6 - The trail - running on crushed dirt surface seems easier on legs than a road race
+    5 - The elevation profile - although the first 14 miles are a gradual, but unrelenting uphill; almost all of the second half of the race is a gradual downhill
+    4 - A difficult race - knowing that as you cross the Finish Line, you have conquered one of the most difficult marathons & the hardest that I've done.
+    3 - The finisher's medal - with the Deadman's poker hand displayed - aces and eights!
+    2 - The smell of the pine trees
+    1 - The sound of the streams`,
     state: 'SD',
     time: '5:22:47',
   },
