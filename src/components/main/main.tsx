@@ -149,50 +149,6 @@ export const Main: React.SFC<{}> = () => {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12}>
-          <Card>
-            <CardContent>
-              <Typography variant="headline" component="h2">
-                Dana's Thoughts
-              </Typography>
-              <Paragraph>
-                We began making these marathon weekend trips an adventure,
-                finding things to do in cities you may not expect to enjoy. We
-                caught a baseball game in St. Louis on our way home from Kansas,
-                enjoyed a performance of the Nutcracker in Alabama (it was
-                mid-December), went to a sold-out college baseball game in
-                Nebraska (not much else to do there obviously), tacked on a long
-                weekend in NYC to Connecticut, rolled through Chicago/Milwaukee
-                and caught another baseball game on our way to Iowa, where we
-                also visited the Field of Dreams, made another trip to NYC
-                between New Jersey and Rhode Island (they were a week apart),
-                and experienced a couples float tank in Oklahoma.
-              </Paragraph>
-              <Paragraph>
-                But even more special, we found ways to include our family our
-                friends in some of our marathon trips. We visited with
-                family/friends in Utah, Mississippi, Texas & Arkansas, made two
-                week trips of Hawaii (including Aubrey & Maddie) & Alaska
-                (including Sue, Whitney, Jeanne & Bill), had a magical time at
-                Disney World with Jenny & Maddie in Florida, traveled to New
-                Mexico with Mark, Olivia, McKenna & Emmy, where Mark ran the
-                marathon with Tom, added a few days in San Diego after Nevada to
-                see Denise, Sue, Whitney & JR, spent a night with Jenn, Mark &
-                Ryan as we headed to Iowa, and explored South Dakota with my
-                parents. In addition to Hawaii & Florida, Maddie was part of our
-                original marathon traveling team having also joined us for
-                Tennessee, Michigan, Pennsylvania, Alabama & Texas. We now look
-                forward to bringing our family together to celebrate Tom’s 50th
-                state in Montana! We’ve enjoyed some really great Italian
-                restaurants (carb-loading for race day), attended Mass in
-                small-town churches and large cathedrals, golfed many golf
-                courses, and tasted local craft beers (mostly me)…all over the
-                country! It’s been quite an incredible journey and I certainly
-                got the easier end of the deal!
-              </Paragraph>
-            </CardContent>
-          </Card>
-        </Grid>
       </Grid>
     </StyledMain>
   );
