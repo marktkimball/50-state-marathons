@@ -5,6 +5,9 @@ export const marathons = {
     date: '1979-08-26',
     nextState: 'OH',
     prevState: 'MT',
+    review: `Treasure Island start, Golden Gate Park finish, Bay Bridge and Golden Gate Bridge runs, Embarcadero, Presidio, Cliff house. Racing flats.
+    Dad and Mom supporting me. Dad was 49 and an avid runner. Something about the way he was that day that made me think that he wished he was joining me. Swore I would never run another marathon again.
+    This first marathon experience ended up being like my first date with Dana. After getting to know her through office hallway conversations with her, I sensed that a mutual attraction was developing. I invited her for a “coke” in the hospital cafeteria. I was so attracted to her but I was in a relationship. My intent was to tell her that I couldn’t get involved because of my current relationship. Well…I ended up as it turns out even more attracted to her but we finished our conversation at least on that day with an understanding that we couldn’t get involved with each other. Now that we are married, we tease each other that we broke up with each other on our first “date”. So it was with this first marathon experience. I broke up with the relationship after this first marathon, committing myself to never be tempted by her ever again. But she was just too irresistible, just like Dana, and gladly and willingly fell into her lovely arms, never looking back to that first marathon.`,
     state: 'CA',
     time: '3:36:48',
   },
@@ -14,7 +17,7 @@ export const marathons = {
     date: '2000-05-14',
     nextState: 'MA',
     prevState: 'CA',
-    review: `A very rainy start but a very well organized race. Race support was great even though we had less than ideal conditions.`,
+    review: `Dad’s death coinciding with the inaugural Flying Pig in 1999 had piqued my interest in running a marathon again. I started running in my neighborhood of Mount Lookout and entered a few 5K races. I really got into the atmosphere of a race and had some success so entered the 2nd Flying Pig. The race started in downtown, into Eden Park, Hyde Park, Red Bank Road, Lunken Airfield, Eastern Avenue, downtown, Central Parkway, Marshal, Spring Grove Ave, Dalton Avenue, across the river into NKy and then back across the river with the Finish Line at Sawyer’s Point. It was Mother’s Day so I didn’t expect to see Jenny and Mark but there they were at the corner of Wilmer and Eastern Avenues cheering me up. Quite the pick-me-up. I was close to my time in my first marathon (3:40 vs 3:36) when I was 23 yo. I was determined to beat it eventually.`,
     state: 'OH',
     time: '3:41:11',
   },
@@ -24,6 +27,7 @@ export const marathons = {
     date: '2002-04-15',
     nextState: 'NY',
     prevState: 'OH',
+    review: `Patriot’s Day. Red Sox vs.Yankees. Red Sox win. Bus ride, Chuck, Hopkinton, the neighborhoods, Heartbreak Hill. Turning from Hereford onto Boylston. Repeat it two more times in 2004 and 2006. Didn’t get my best time in 2004, but ran perhaps my smartest race in the heat beating Chuck. 83 degrees at start and 86 by mid afternoon . Crossing Route 128 was like a battlefield with runners down, receiving IV fluids. Record number of runners treated for heat-related illnesses. Wellsley girls scream tunnel`,
     state: 'MA',
     time: '3:51:47',
   },
@@ -33,17 +37,19 @@ export const marathons = {
     date: '2003-11-02',
     nextState: 'IL',
     prevState: 'MA',
+    review: `I failed the lottery 3x so got automatic entry. Visiting Ground Zero. Wanted to run with Lance. Instead got P. Diddy and his entourage. Running across the 59th street bridge and circling onto 1st avenue. First marathon over 4 hours. Waking up early and walking down to public library for the bus. Waiting hours on Staten Island for start. New York, NEW YORK at start line and crossing Verrazano Bridge. Hassidic Jews Running the last stretch from Columbus Circle into Central Park. Rumor about runners on top level peeing which spills onto the runners on the bottom level. Can’t address since I was a top level runner.`,
     state: 'NY',
     time: '4:04:58',
   },
   IL: {
     city: 'Chicago',
     count: 5,
-    date: '2004-10-10',
+    date: '2002-10-13',
     nextState: 'MN',
     prevState: 'NY',
+    review: `2002 – want to experience a huge marathon – Chicago, ILLINOIS. Gigantic expo. Running with cell phone and fellow runners chiding me about it. Chip fell off so didn’t have official time. They checked the video though and gave me an official time!   The final miles aren’t as easy as you’d think – into the wind and slight uphill. My time was 3:36:33`,
     state: 'IL',
-    time: '3:43:28',
+    time: '3:36:33',
   },
   MN: {
     city: 'Minneapolis',
@@ -51,6 +57,7 @@ export const marathons = {
     date: '2006-10-01',
     nextState: 'AZ',
     prevState: 'IL',
+    review: `Having run 5 states (CA, IL, OH, MA, NY), look into what it takes to join 50 States – 10 states, realizing I have only 4 states to go, decide to make this a goal. Run Twin Cities, MINNESOTA in Fall. Beautiful Fall day. Get to stay warm in Metrodome, finish coming down the hill overlooking the Capitol building. Runner down, stopped to help but paramedics didn’t need assistance.`,
     state: 'MN',
     time: '3:39:33',
   },
@@ -60,6 +67,7 @@ export const marathons = {
     date: '2007-01-14',
     nextState: 'MO',
     prevState: 'MN',
+    review: `Rock and Roll – the coldest race ever (22 degrees). Gathered around fires at start. Chuck joined me. Tour of Taliesin West – Frank Lloyd Wright house.`,
     state: 'AZ',
     time: '3:36:26',
   },
@@ -69,6 +77,7 @@ export const marathons = {
     date: '2007-04-15',
     nextState: 'VA',
     prevState: 'AZ',
+    review: `See new Busch because of rain-out. People coming out as I go in –get to explore the stadium. visit arch, foggy rainy day. Run takes us through Anheuser-Busch headquarters and brewery, Forest Park. `,
     state: 'MO',
     time: '3:44:54',
   },
@@ -78,6 +87,7 @@ export const marathons = {
     date: '2007-10-28',
     nextState: 'WV',
     prevState: 'MO',
+    review: `Marine Corps. Lonely metro ride. DC sites. Out and back in West Potomac Park and Crystal City, Marine at finish line – Congratulations Sir! While draping medal around neck.`,
     state: 'VA',
     time: '4:04:54',
   },
@@ -87,6 +97,8 @@ export const marathons = {
     date: '2009-06-13',
     nextState: 'ID',
     prevState: 'VA',
+    review: `Ranked by The Weather Channel as one of the Toughest Marathons, RR magazine Most Fun Races and Red Bull’s Must Have Medals. Up and down Blackberry Mountain – elevation change of about 650 feet at mile 7, suspension bridge at Tug Valley Country Club at about mile 19. Brief but steep hill in miles 20 or so. Begins in South Williamson, KY. Ends in Williamson, WV. Hatfield-McCoy reenactment and at finish line. Finishing this race gives me 10 states and allows me to join the 50 State club.
+    Afterwards enjoy hiking and photographing Red River Gorge`,
     state: 'WV',
     time: '4:18:57',
   },
@@ -96,6 +108,7 @@ export const marathons = {
     date: '2009-08-22',
     nextState: 'KY',
     prevState: 'WV',
+    review: `Vacation to Yellowstone and Grand Teton National Parks. Hike to top of Mt Washburn 10,243 ft. Grand Canyon of the Yellowstone, Artist’s Point, bison. Marathon- buses dump us in middle of nowhere, here’s the starting line – a line in the dirt road. Remember seeing the silos of Ashton shining in the distance – seemed so far away. Pre-race dinner in Ashton Elementary school – meet marathon maniacs – there are people crazier than me!! Free ice cream at Five 11 Main Old-Fashioned Soda Fountain - Huckleberry ice cream  Walk 19 mile Grand Teton loop the next day starting at Jenny Lake up Paintbrush Canyon over Paintbrush Divide 10,700 feet where I get lost, down to Lake Solitude and down through Cascade Canyon to Jenny Lake.`,
     state: 'ID',
     time: '4:31:01',
   },
@@ -105,8 +118,9 @@ export const marathons = {
     date: '2010-04-24',
     nextState: 'TN',
     prevState: 'ID',
+    review: `Bused us to close to Iroquois Park, then ran through it beauty of that park, lap around Churchill Downs, into downtown then to Cherokee Park, back to downtown, past the finish line (argh), Clark Memorial Bridge into Indiana and back. Spasm in both legs causes me to fall and hard to get up. Check out early and get back to Cinti in time to have a Chipolte lunch with Dana`,
     state: 'KY',
-    time: '3:59:32',
+    time: '3:57:07',
   },
   TN: {
     city: 'Chattanooga',
@@ -262,6 +276,7 @@ export const marathons = {
     date: '2014-11-01',
     nextState: 'KS',
     prevState: 'PA',
+    review: `Mississippi Blues marathon. Talk with Bill Rodgers – former American record holder (2:09:27) in marathon. 4 wins in both the Boston marathon and NYC marathon. End was very hilly. Huge guitar medal. Some runners running the First Light Marathon in Mobile, Alabama on the next day. Yikes!`,
     state: 'MS',
     time: '5:11:18',
   },
@@ -311,6 +326,11 @@ export const marathons = {
     date: '2014-08-30',
     nextState: 'IN',
     prevState: 'WI',
+    review: `Little propeller plane from SLC to West Yellowstone, Montana. Sense of freedom as Dana and I enter Yellowstone – beautiful weather, clouds, river. Dana sees geysers for first time, bison for first time. Bison traffic jam into Lake Yellowstone Hotel. Grand old national park hotel
+    Grand Canyon of the Yellowstone, Grand Tetons. Four Seasons Hotel. Dinner at nice little Italian place in Jackson, Nani’s. 
+    Start line is just a corner on the street. Pretty day, pretty course. Bring your own water carrying device. Finish line at Jackson Hole. 5:07:06 Dana leap frogs in car with me for the final 6 miles. Afternoon in front of fire on patio of Four Seasons. Dinner at Mural Room, Jackson Lake Lodge – see a moose in the distance. 
+    Next day – rain, shop in Jackson
+    Next day – beautiful morning and photography. Drive to West Yellowstone. As we exit the park, see two stag elks in the meadow.`,
     state: 'WY',
     time: '5:07:06',
   },
@@ -320,6 +340,7 @@ export const marathons = {
     date: '2014-11-01',
     nextState: 'AL',
     prevState: 'WY',
+    review: `Iozzo’s garden of Italy restaurant. snowed the night before. Ran with a bag of blankets and sweatclothes for a mile and then gave them to Dana, finish at Capitol is beautiful. Quick getaway and drive back to Cincy. Dana gets air fresheners for car.`,
     state: 'IN',
     time: '5:11:51',
   },
@@ -329,6 +350,8 @@ export const marathons = {
     date: '2014-12-13',
     nextState: 'TX',
     prevState: 'IN',
+    review: `Hotel right at start and finish line next to civic center. 4:56:46. Christmas decorations on antebellum houses. Try to keep up with 10:30 pace group and do so until about mile 15. Halfway point is at finish line so see leaders finishing race at my halfway point. Tour through US Space and Rocket Center – run under a space shuttle, then botanical gardens (would return there in car later that night to see Christmas lights. At mile 25, very enthusiastic volunteer urging us on. I break 5 hours!
+      2015 – seems like a good year to stop running the Pig. I’ve done 15 of them – that seems like a good place to stop. I can support Mark in his first marathon effort and I need to conserve my “marathons” for unique states.`,
     state: 'AL',
     time: '4:57:18',
   },
@@ -338,6 +361,7 @@ export const marathons = {
     date: '2015-02-15',
     nextState: 'MD',
     prevState: 'AL',
+    review: `Fly into San Antonio, visit Bill and Jeanne Rodriguez. Go to rodeo, piglet racing, carnival rides, Riverwalk, Outdoor bbq at Salt Lick BBQ in Texas Hill Country. Austin packed. Dana able to be with me at start line. Hilly marathon but from mile 18 it’s all downhill. Go through UT and give the Longhorn sign to some students. Finish in front of Capitol with Dana waiting right there. See American Sniper that evening.`,
     state: 'TX',
     time: '5:17:38',
   },
@@ -570,6 +594,17 @@ export const marathons = {
     date: '2017-01-14',
     nextState: 'AR',
     prevState: 'GA',
+    review: `Top 10 reasons To Run Lake Mead
+    1) Beautiful scenery – view of the lake and surrounding mounains for the entire race
+    2) What better place to have a post-race celebration than Las Vegas
+    3) Escape the winter weather in other parts of the US
+    4) Medal and shirt are great and high quality – better than expected for such a small race
+    5) Post-race snacks were delicious – breakfast type snacks early and pizza later
+    6) Easy access to runners pre and post race for families
+    7) Future chances to make sure that Race Director ensures the accuracy of course markings throughout the race – he didn’t in 2017 leading to some runners taking a 0.7 mile detour. 
+    8) Volunteers are super enthusiastic
+    9) Super easy packet pickup
+    10) Simultaneous smaller distant races for other family members to enjoy.`,
     state: 'NV',
     time: '5:08:32',
   },
@@ -798,6 +833,17 @@ export const marathons = {
     date: '2018-07-15',
     nextState: 'CA',
     prevState: 'SD',
+    review: `Top 10 Reasons to Run Missoula
+    10- An amazingly flat course in generally mountainous terrain
+    9 - Early race start (6AM) means early race finish and avoiding later day hot weather
+    8 - Simple but nice touches for the runners – moose antler finishing medal, race bib in the shape of the state of Montana
+    7 - Missoula police – when thanked for traffic control, THEY thanked Us for running in THEIR race
+    6 - Large farmer’s market at Finish Line for both Saturday and Sunday races
+    5 - Amazing community engagement – e.g. so many private residential sprinklers turned on to keep us cool
+    4 - Beautiful scenery in the first half – sunrise over the ranchlands, early morning along the forested Clark Fork River
+    3 – Mary’s Mountain Cookies Shop at Finish Line – the most delicious cookies ever!
+    2 - Opportunity to visit Glacier National Park – just 2-3 hours away
+    1 - Heart-warming community pride – Montana is known as The Last Best Place; when Missoulans became aware that I was running my 50th state, they shouted at me “Saving the Best for Last!”`,
     state: 'MT',
   },
 };
