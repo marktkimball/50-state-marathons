@@ -1,10 +1,9 @@
 require('dotenv').config();
 
 const config = {
-  FIRESTORE_API_KEY: process.env.FIRESTORE_API_KEY,
-  FIRESTORE_AUTH_DOMAIN: process.env.FIRESTORE_AUTH_DOMAIN,
-  FIRESTORE_PROJECT_ID: process.env.FIRESTORE_PROJECT_ID,
-  FIRESTORE_STORAGE_BUCKET: process.env.FIRESTORE_STORAGE_BUCKET,
+  FIRESTORE_API_KEY: process.env.API_KEY,
+  MESSAGING_SENDER_ID: process.env.MESSAGING_SENDER_ID,
+  APP_ID: process.env.APP_ID,
 };
 
 const middleware = (req, res, next) => {

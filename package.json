@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "Website for my dad's 50th marathon state",
   "main": "index.js",
-  "engines": {
-    "node": "8.11.2",
-    "yarn": "1.7.0"
-  },
   "repository": "https://github.com/marktkimball/50-state-marathons.git",
   "author": "marktkimball <mark.kimball@octanner.com>",
   "license": "MIT",
