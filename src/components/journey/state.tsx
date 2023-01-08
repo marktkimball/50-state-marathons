@@ -5,17 +5,14 @@ import { statesTable } from 'app-constants';
 import blue from '@material-ui/core/colors/blue';
 import grey from '@material-ui/core/colors/grey';
 import Divider from '@material-ui/core/Divider';
-import Fade from '@material-ui/core/Fade';
 import Grid from '@material-ui/core/Grid';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
-import Slide from '@material-ui/core/Slide';
 import Typography from '@material-ui/core/Typography';
 
 interface StateProps {
   code: string;
   handleStateSwitch(route: string): void;
-  atRest: boolean;
   stats: {
     city: string;
     count: number;
@@ -125,19 +122,16 @@ const BottomQuote = styled(QuoteIcon)`
 export const State: React.SFC<StateProps> = ({
   code,
   handleStateSwitch,
-  atRest,
   stats,
 }) => {
   const state = statesTable[code];
   return (
     <StateContainer container>
       <Grid item xs={12} sm={12} md={6}>
-        <Slide direction="right" in={atRest} mountOnEnter unmountOnExit>
-          <StateImage
-            alt={state}
-            src={require(`assets/state-icons/${code}.svg`)}
-          />
-        </Slide>
+        <StateImage
+          alt={state}
+          src={require(`assets/state-icons/${code}.svg`)}
+        />
         <NavBlock>
           <NavButton
             onClick={() => handleStateSwitch(`/journey/${stats.prevState}`)}
@@ -152,36 +146,34 @@ export const State: React.SFC<StateProps> = ({
         </NavBlock>
       </Grid>
       <StatsGrid item xs={12} sm={12} md={6}>
-        <Fade in={atRest}>
-          <StatsContainer>
-            <StateHeader>{state}</StateHeader>
-            <Underline />
+        <StatsContainer>
+          <StateHeader>{state}</StateHeader>
+          <Underline />
+          <StatRow>
+            <Typography variant="title">City</Typography>
+            {stats.city}
+          </StatRow>
+          <StatRow>
+            <Typography variant="title">Date</Typography>
+            {format(stats.date, 'MMMM DD, YYYY')}
+          </StatRow>
+          {stats.time && (
             <StatRow>
-              <Typography variant="title">City</Typography>
-              {stats.city}
+              <Typography variant="title">Time</Typography>
+              {stats.time}
             </StatRow>
+          )}
+          {stats.review && (
             <StatRow>
-              <Typography variant="title">Date</Typography>
-              {format(stats.date, 'MMMM DD, YYYY')}
+              <Typography variant="title">Tom's Thoughts</Typography>
+              <ReviewText>
+                <TopQuote>format_quote</TopQuote>
+                {stats.review}
+                <BottomQuote>format_quote</BottomQuote>
+              </ReviewText>
             </StatRow>
-            {stats.time && (
-              <StatRow>
-                <Typography variant="title">Time</Typography>
-                {stats.time}
-              </StatRow>
-            )}
-            {stats.review && (
-              <StatRow>
-                <Typography variant="title">Tom's Thoughts</Typography>
-                <ReviewText>
-                  <TopQuote>format_quote</TopQuote>
-                  {stats.review}
-                  <BottomQuote>format_quote</BottomQuote>
-                </ReviewText>
-              </StatRow>
-            )}
-          </StatsContainer>
-        </Fade>
+          )}
+        </StatsContainer>
       </StatsGrid>
     </StateContainer>
   );

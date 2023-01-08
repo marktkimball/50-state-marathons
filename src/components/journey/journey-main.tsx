@@ -2,7 +2,6 @@ import * as React from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import styled from 'styled-components';
 import grey from '@material-ui/core/colors/grey';
-import Slide from '@material-ui/core/Slide';
 import { marathons } from 'app-constants';
 import { State } from './';
 
@@ -10,11 +9,6 @@ interface JourneyProps extends RouteComponentProps<{}> {
   history: any;
   location: any;
   match: any;
-}
-
-interface JourneyState {
-  atRestQuick: boolean;
-  atRestSlow: boolean;
 }
 
 const JourneyContainer = styled.main`
@@ -53,49 +47,29 @@ const MainSection = styled.section`
   }
 `;
 
-class Journey extends React.Component<JourneyProps, JourneyState> {
+class Journey extends React.Component<JourneyProps> {
   static displayName = 'JourneyMain';
 
-  state = {
-    atRestQuick: false,
-    atRestSlow: false,
-  };
-
-  componentWillMount() {
-    setTimeout(() => this.setState({ atRestQuick: true }), 100);
-    setTimeout(() => this.setState({ atRestSlow: true }), 300);
-  }
-
   transitionStates = (route: string) => {
-    this.setState({ atRestQuick: false, atRestSlow: false }, () => {
-      setTimeout(() => this.setState({ atRestQuick: true }), 100);
-      setTimeout(() => this.setState({ atRestSlow: true }), 300);
-    });
     this.props.history.push(route);
   };
 
   render() {
-    const { atRestQuick, atRestSlow } = this.state;
     const { state } = this.props.match.params;
     const stateStats = marathons[state];
 
     return (
       <JourneyContainer>
         <CounterSection displayOnLarge>
-          <Slide direction="down" in={atRestQuick} mountOnEnter unmountOnExit>
-            <Count>{stateStats.count}</Count>
-          </Slide>
+          <Count>{stateStats.count}</Count>
         </CounterSection>
         <MainSection>
           <CounterSection displayOnLarge={false}>
-            <Slide direction="down" in={atRestQuick} mountOnEnter unmountOnExit>
-              <Count>{stateStats.count}</Count>
-            </Slide>
+            <Count>{stateStats.count}</Count>
           </CounterSection>
           <State
             code={state}
             handleStateSwitch={this.transitionStates}
-            atRest={atRestSlow}
             stats={stateStats}
           />
         </MainSection>
